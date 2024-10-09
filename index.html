@@ -17,6 +17,7 @@
     justify-content: center;
     align-items: center;
     z-index: 10001;
+    background: linear-gradient(45deg, #000428, #004e92);
   }
   #matrix-container {
     position: absolute;
@@ -35,29 +36,35 @@
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
     border: 2px solid rgba(255, 255, 255, 0.2);
     z-index: 1;
+    max-width: 90%;
+    width: 400px;
   }
   #welcome-screen h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   }
   #welcome-screen p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
+    line-height: 1.6;
   }
   #enter-button {
     padding: 15px 30px;
     font-size: 1.2rem;
-    background: transparent;
-    border: 2px solid #00ffff;
-    color: #00ffff;
+    background: linear-gradient(45deg, #00ffff, #00bfff);
+    border: none;
+    color: #000;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
   #enter-button:hover {
-    background: #00ffff;
-    color: #000;
-    box-shadow: 0 0 20px #00ffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
   }
   #door-animation {
     position: fixed;
@@ -280,13 +287,16 @@
   }
   @media (max-width: 768px) {
     .glass-box {
-      width: 95%;
       padding: 30px;
     }
-    h1 {
-      font-size: 1.8rem;
+    #welcome-screen h1 {
+      font-size: 2rem;
     }
-    p {
+    #welcome-screen p {
+      font-size: 1rem;
+    }
+    #enter-button {
+      padding: 12px 24px;
       font-size: 1rem;
     }
     .button-container {
@@ -308,8 +318,8 @@
 <div id="welcome-screen">
   <div id="matrix-container"></div>
   <div class="glass-box">
-    <h3>Welcome to the Cyber Realm</h3>
-    <p>Prepare to enter a world of digital mysteries and cyber wonders</p>
+    <h1>Welcome to the Cyber Realm</h1>
+    <p>Prepare to enter a world of digital mysteries and cyber wonders. Are you ready to explore?</p>
     <button id="enter-button">Enter</button>
   </div>
 </div>
@@ -556,7 +566,7 @@ function navigate(section) {
   const links = {
     'about': 'https://alahimajnurosama.github.io/v1/about',
     'education': 'https://alahimajnurosama.github.io/v1/education',
-    'blog': 'https://alahimajnurosama.github.io/Projects',
+    'blog': 'https://alahimajnurosama.github.io/projects',
     'contact': 'https://alahimajnurosama.bio.link'
   };
 
@@ -708,63 +718,43 @@ function setupMatrixEffect() {
   document.getElementById('matrix-container').appendChild(canvas);
   const ctx = canvas.getContext('2d');
 
-  for (let i = 0; i < dotCount; i++) {
-    dots.push(new Dot(canvas.width, canvas.height));
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = [];
+  for (let i = 0; i < columns; i++) {
+    drops[i] = 1;
   }
 
-  function animate() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+  const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    for (let dot of dots) {
-      dot.update(canvas.width, canvas.height);
-      dot.display(ctx);
-      dot.connect(ctx, dots);
-    }
+    ctx.fillStyle = '#0f0';
+    ctx.font = fontSize + 'px monospace';
 
-    requestAnimationFrame(animate);
-  }
+    for (let i = 0; i < drops.length; i++) {
+      const text = matrix[Math.floor(Math.random() * matrix.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-  animate();
-}
-
-class Dot {
-  constructor(width, height) {
-    this.pos = { x: Math.random() * width, y: Math.random() * height };
-    this.vel = {
-      x: (Math.random() - 0.5) * 2,
-      y: (Math.random() - 0.5) * 2
-    };
-    this.size = Math.random() * 3 + 2;
-    this.color = `rgb(0, ${Math.random() * 105 + 150}, ${Math.random() * 100 + 100})`;
-  }
-
-  update(width, height) {
-    this.pos.x += this.vel.x;
-    this.pos.y += this.vel.y;
-    if (this.pos.x < 0 || this.pos.x > width) this.vel.x *= -1;
-    if (this.pos.y < 0 || this.pos.y > height) this.vel.y *= -1;
-  }
-
-  display(ctx) {
-    ctx.beginPath();
-    ctx.arc(this.pos.x, this.pos.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-  }
-
-  connect(ctx, dots) {
-    for (let other of dots) {
-      const d = Math.hypot(this.pos.x - other.pos.x, this.pos.y - other.pos.y);
-      if (d < maxDist) {
-        ctx.beginPath();
-        ctx.moveTo(this.pos.x, this.pos.y);
-        ctx.lineTo(other.pos.x, other.pos.y);
-        ctx.strokeStyle = `rgba(${this.color.slice(4, -1)}, ${1 - d / maxDist})`;
-        ctx.stroke();
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
       }
+      drops[i]++;
     }
   }
+
+  setInterval(draw, 35);
 }
+
+window.addEventListener('resize', () => {
+  const canvas = document.querySelector('#matrix-container canvas');
+  if (canvas) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    setupMatrixEffect();
+  }
+});
 </script>
 </body></html>
