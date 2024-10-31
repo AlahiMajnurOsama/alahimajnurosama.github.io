@@ -1,0 +1,821 @@
+<html><head><base href="https://Alahimajnurosama.github.io/"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Alahi Majnur Osama - Cyber Security Researcher</title><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  #welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    background: linear-gradient(45deg, #000428, #004e92);
+  }
+  #matrix-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .glass-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    max-width: 90%;
+    width: 400px;
+    transition: all 0.3s ease-in-out;
+  }
+  .glass-box:hover {
+    transform: scale(1.05);
+  }
+  #welcome-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  #welcome-screen p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  #enter-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #00ffff, #00bfff);
+    border: none;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  #enter-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+  }
+  #door-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 10000;
+  }
+  .door {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #000;
+    transition: transform 2s ease;
+  }
+  .left-door {
+    left: 0;
+    transform-origin: left;
+  }
+  .right-door {
+    right: 0;
+    transform-origin: right;
+  }
+  .door-open .left-door {
+    transform: perspective(1200px) rotateY(90deg);
+  }
+  .door-open .right-door {
+    transform: perspective(1200px) rotateY(-90deg);
+  }
+  .door::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+    opacity: 0;
+    transition: opacity 2s ease;
+  }
+  .door-open .door::after {
+    opacity: 1;
+  }
+  .container {
+    display: none;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+  }
+  .button-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+  }
+  .nav-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+  }
+  .nav-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  }
+  #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .top-bar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+  .icon-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+  }
+  .icon-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  }
+  .material-icons {
+    color: white;
+    font-size: 24px;
+  }
+  .search-panel, .info-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    z-index: 100;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    width: 400px;
+  }
+  .search-input, .search-button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+  }
+  .search-button {
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .search-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    display: none;
+  }
+  #hacker-mask-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  }
+  #hacker-mask-loader svg {
+    width: 100px;
+    height: 100px;
+    animation: pulse 2s infinite alternate;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+  }
+  .mask-eye {
+    animation: blink 3s infinite;
+  }
+  @keyframes blink {
+    0%, 90%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+  }
+  .mask-mouth {
+    animation: speak 2s infinite;
+  }
+  @keyframes speak {
+    0%, 100% { d: path('M40 60 Q50 70 60 60'); }
+    50% { d: path('M40 65 Q50 55 60 65'); }
+  }
+  @media (max-width: 768px) {
+    .glass-box {
+      padding: 30px;
+    }
+    #welcome-screen h1 {
+      font-size: 2rem;
+    }
+    #welcome-screen p {
+      font-size: 1rem;
+    }
+    #enter-button {
+      padding: 12px 24px;
+      font-size: 1rem;
+    }
+    .button-container {
+      grid-template-columns: 1fr;
+    }
+    .top-bar {
+      top: 10px;
+      right: 10px;
+    }
+    .icon-button {
+      width: 40px;
+      height: 40px;
+    }
+    .material-icons {
+      font-size: 20px;
+    }
+  }
+</style></head><body>
+<div id="welcome-screen">
+  <div id="matrix-container"></div>
+  <div class="glass-box">
+    <h1>Welcome to the Cyber Realm</h1>
+    <p>Prepare to enter a world of digital mysteries and cyber wonders. Are you ready to explore?</p>
+    <button id="enter-button">Enter</button>
+  </div>
+</div>
+<div id="door-animation">
+  <div class="door left-door"></div>
+  <div class="door right-door"></div>
+</div>
+<div id="hacker-mask-loader">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 15 L25 35 L25 65 L50 85 L75 65 L75 35 Z" fill="none" stroke="#00ffff" stroke-width="2" />
+    <path class="mask-eye left-eye" d="M35 45 L45 45" stroke="#00ffff" stroke-width="2" />
+    <path class="mask-eye right-eye" d="M55 45 L65 45" stroke="#00ffff" stroke-width="2" />
+    <path class="mask-mouth" d="M40 60 Q50 70 60 60" fill="none" stroke="#00ffff" stroke-width="2" />
+  </svg>
+</div>
+<div class="container">
+  <div class="glass-box">
+    <img src="https://lh3.googleusercontent.com/pw/AP1GczPXZoNVdA4dc2xBAUG3QxvqsJge03hJHLZosgULAPQ0vMIOPVnlUPQ8l5lrMXJmiWVjkr04MzL1uEWdrIWN5LBf5NHER8LS7a011mVErbGSqTeIPTw9MazP7rSRQuMDixW6MjI6lTu6PvwxqZien6oC=w1080-h1080-s-no-gm?authuser=0" alt="Alahi Majnur Osama profile picture" class="profile-pic" width="150" height="150">
+    <h1>Alahi Majnur Osama</h1>
+    <p>Cyber Security Researcher & Student</p>
+    <div class="button-container">
+      <button class="nav-button" onclick="navigate('about')">Portfolio</button>
+      <button class="nav-button" onclick="navigate('education')">CV</button>
+      <button class="nav-button" onclick="navigate('blog')">Projects</button>
+      <button class="nav-button" onclick="navigate('contact')">Contact Me</button>
+    </div>
+  </div>
+</div>
+<div class="top-bar">
+  <button id="searchButton" class="icon-button">
+    <span class="material-icons">search</span>
+  </button>
+  <button id="infoButton" class="icon-button">
+    <span class="material-icons">info</span>
+  </button>
+</div>
+<div class="search-panel" id="searchPanel">
+  <h2>Search the Web</h2>
+  <select id="searchEngine" class="search-input">
+    <option value="google">Google</option>
+    <option value="bing">Bing</option>
+    <option value="duckduckgo">DuckDuckGo</option>
+    <option value="custom">Others</option>
+  </select>
+  <input type="text" id="searchInput" class="search-input" placeholder="Enter search term...">
+  <button id="startSearch" class="search-button">Go</button>
+  <button id="closeSearch" class="close-button">
+    <span class="material-icons">close</span>
+  </button>
+</div>
+<div class="info-container" id="infoContainer">
+  <h2>Your Information</h2>
+  <div class="button-container">
+    <button id="ipInfoButton" class="nav-button">IP Info</button>
+    <button id="deviceInfoButton" class="nav-button">Device Info</button>
+  </div>
+  <div id="infoContent"></div>
+  <button id="closeInfo" class="close-button">
+    <span class="material-icons">close</span>
+  </button>
+</div>
+<div class="overlay" id="overlay"></div>
+<svg id="background" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:rgb(25,25,112);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(2,15,29);stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <rect width="100" height="100" fill="url(#gradient)">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="10s" repeatCount="indefinite" />
+  </rect>
+  <g id="space-objects"></g>
+  <g id="cyber-net"></g>
+  <g id="floating-icons"></g>
+</svg>
+<script>
+const spaceObjects = document.getElementById('space-objects');
+
+function createStar() {
+  const star = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  star.setAttribute("r", Math.random() * 0.2 + 0.1);
+  star.setAttribute("cx", Math.random() * 100);
+  star.setAttribute("cy", Math.random() * 100);
+  star.setAttribute("fill", "white");
+  
+  const animateTwinkle = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+  animateTwinkle.setAttribute("attributeName", "opacity");
+  animateTwinkle.setAttribute("values", "0;1;0");
+  animateTwinkle.setAttribute("dur", `${Math.random() * 3 + 2}s`);
+  animateTwinkle.setAttribute("repeatCount", "indefinite");
+  
+  star.appendChild(animateTwinkle);
+  return star;
+}
+
+function createPlanet() {
+  const planet = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  const size = Math.random() * 3 + 1;
+  planet.setAttribute("r", size);
+  planet.setAttribute("fill", `hsl(${Math.random() * 360}, 70%, 50%)`);
+  
+  const orbitRadius = Math.random() * 40 + 20;
+  const orbitDuration = Math.random() * 60 + 30;
+  const orbitDelay = Math.random() * orbitDuration;
+  
+  const animateOrbit = document.createElementNS("http://www.w3.org/2000/svg", "animateMotion");
+  animateOrbit.setAttribute("path", `M ${50 - orbitRadius} 50 a ${orbitRadius} ${orbitRadius} 0 1 0 ${orbitRadius * 2} 0 a ${orbitRadius} ${orbitRadius} 0 1 0 -${orbitRadius * 2} 0`);
+  animateOrbit.setAttribute("dur", `${orbitDuration}s`);
+  animateOrbit.setAttribute("repeatCount", "indefinite");
+  animateOrbit.setAttribute("begin", `-${orbitDelay}s`);
+  
+  planet.appendChild(animateOrbit);
+  return planet;
+}
+
+function createComet() {
+  const comet = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  comet.setAttribute("stroke", "white");
+  comet.setAttribute("stroke-width", "0.2");
+  
+  const animateX1 = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+  animateX1.setAttribute("attributeName", "x1");
+  animateX1.setAttribute("from", "-10");
+  animateX1.setAttribute("to", "110");
+  animateX1.setAttribute("dur", "3s");
+  animateX1.setAttribute("repeatCount", "indefinite");
+  
+  const animateY1 = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+  animateY1.setAttribute("attributeName", "y1");
+  animateY1.setAttribute("from", `${Math.random() * 100}`);
+  animateY1.setAttribute("to", `${Math.random() * 100}`);
+  animateY1.setAttribute("dur", "3s");
+  animateY1.setAttribute("repeatCount", "indefinite");
+  
+  const animateX2 = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+  animateX2.setAttribute("attributeName", "x2");
+  animateX2.setAttribute("from", "-8");
+  animateX2.setAttribute("to", "112");
+  animateX2.setAttribute("dur", "3s");
+  animateX2.setAttribute("repeatCount", "indefinite");
+  
+  const animateY2 = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+  animateY2.setAttribute("attributeName", "y2");
+  animateY2.setAttribute("from", animateY1.getAttribute("from"));
+  animateY2.setAttribute("to", animateY1.getAttribute("to"));
+  animateY2.setAttribute("dur", "3s");
+  animateY2.setAttribute("repeatCount", "indefinite");
+  
+  comet.appendChild(animateX1);
+  comet.appendChild(animateY1);
+  comet.appendChild(animateX2);
+  comet.appendChild(animateY2);
+  
+  return comet;
+}
+
+function createCyberNet() {
+  const net = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  net.setAttribute("stroke", "rgba(0, 255, 0, 0.3)");
+  net.setAttribute("fill", "none");
+  net.setAttribute("stroke-width", "0.1");
+  
+  const d = generateRandomPath();
+  net.setAttribute("d", d);
+  
+  const animateDash = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+  animateDash.setAttribute("attributeName", "stroke-dashoffset");
+  animateDash.setAttribute("from", "0");
+  animateDash.setAttribute("to", "-20");
+  animateDash.setAttribute("dur", "5s");
+  animateDash.setAttribute("repeatCount", "indefinite");
+  
+  net.appendChild(animateDash);
+  return net;
+}
+
+function generateRandomPath() {
+  let path = `M${Math.random() * 100} ${Math.random() * 100} `;
+  for (let i = 0; i < 5; i++) {
+    path += `L${Math.random() * 100} ${Math.random() * 100} `;
+  }
+  return path;
+}
+
+function createFloatingIcon(iconPath) {
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "image");
+  icon.setAttributeNS("http://www.w3.org/1999/xlink", "href", iconPath);
+  icon.setAttribute("width", "5");
+  icon.setAttribute("height", "5");
+  icon.setAttribute("x", Math.random() * 95);
+  icon.setAttribute("y", Math.random() * 95);
+  icon.classList.add("icon");
+  
+  const animateMotion = document.createElementNS("http://www.w3.org/2000/svg", "animateMotion");
+  animateMotion.setAttribute("path", generateRandomPath());
+  animateMotion.setAttribute("dur", `${Math.random() * 30 + 20}s`);
+  animateMotion.setAttribute("repeatCount", "indefinite");
+  
+  icon.appendChild(animateMotion);
+  return icon;
+}
+
+function createGlowingPebble() {
+  const pebble = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  pebble.setAttribute("r", Math.random() * 1.5 + 0.5);
+  pebble.setAttribute("cx", Math.random() * 100);
+  pebble.setAttribute("cy", Math.random() * 100);
+  pebble.setAttribute("fill", `hsl(${Math.random() * 60 + 180}, 100%, 70%)`);
+  
+  const animateGlow = document.createElementNS("http://www.w3.org/2000/svg", "animate");
+  animateGlow.setAttribute("attributeName", "opacity");
+  animateGlow.setAttribute("values", "0.5;1;0.5");
+  animateGlow.setAttribute("dur", `${Math.random() * 3 + 2}s`);
+  animateGlow.setAttribute("repeatCount", "indefinite");
+  
+  pebble.appendChild(animateGlow);
+  return pebble;
+}
+
+function createJellyBean() {
+  const jellyBean = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
+  jellyBean.setAttribute("rx", Math.random() * 2 + 1);
+  jellyBean.setAttribute("ry", Math.random() * 1 + 0.5);
+  jellyBean.setAttribute("cx", Math.random() * 100);
+  jellyBean.setAttribute("cy", Math.random() * 100);
+  jellyBean.setAttribute("fill", `hsl(${Math.random() * 360}, 80%, 60%)`);
+  
+  const animateWobble = document.createElementNS("http://www.w3.org/2000/svg", "animateTransform");
+  animateWobble.setAttribute("attributeName", "transform");
+  animateWobble.setAttribute("type", "rotate");
+  animateWobble.setAttribute("values", "0 50 50; 360 50 50");
+  animateWobble.setAttribute("dur", `${Math.random() * 10 + 10}s`);
+  animateWobble.setAttribute("repeatCount", "indefinite");
+  
+  jellyBean.appendChild(animateWobble);
+  return jellyBean;
+}
+
+// Add stars
+for (let i = 0; i < 200; i++) {
+  spaceObjects.appendChild(createStar());
+}
+
+// Add planets
+for (let i = 0; i < 10; i++) {
+  spaceObjects.appendChild(createPlanet());
+}
+
+// Add comets periodically
+setInterval(() => {
+  const comet = createComet();
+  spaceObjects.appendChild(comet);
+  setTimeout(() => {
+    spaceObjects.removeChild(comet);
+  }, 3000);
+}, 5000);
+
+// Add cyber net
+const cyberNet = document.getElementById('cyber-net');
+for (let i = 0; i < 10; i++) {
+  cyberNet.appendChild(createCyberNet());
+}
+
+// Add glowing pebbles and jelly beans
+for (let i = 0; i < 20; i++) {
+  spaceObjects.appendChild(createGlowingPebble());
+  spaceObjects.appendChild(createJellyBean());
+}
+
+// Add floating icons
+const floatingIcons = document.getElementById('floating-icons');
+const icons = [
+  'https://websim.ai/html-icon.svg',
+  'https://websim.ai/css-icon.svg',
+  'https://websim.ai/js-icon.svg',
+  'https://websim.ai/security-icon.svg',
+  'https://websim.ai/android-icon.svg',
+  'https://websim.ai/ios-icon.svg'
+];
+icons.forEach(icon => {
+  floatingIcons.appendChild(createFloatingIcon(icon));
+});
+
+function checkWelcomeScreen() {
+  const lastVisit = localStorage.getItem('lastVisit');
+  const currentTime = new Date().getTime();
+
+  if (!lastVisit || (currentTime - lastVisit > 3 * 60 * 1000)) {
+    document.getElementById('welcome-screen').style.display = 'flex';
+  } else {
+    document.getElementById('welcome-screen').style.display = 'none';
+    document.querySelector('.container').style.display = 'flex';
+  }
+
+  localStorage.setItem('lastVisit', currentTime);
+}
+
+// Call this function when the page loads
+document.addEventListener('DOMContentLoaded', checkWelcomeScreen);
+
+function navigate(section) {
+  const links = {
+    'about': 'https://alahimajnurosama.github.io/portfolio',
+    'education': 'https://bgcgeeks.tech/404/',
+    'blog': 'https://alahimajnurosama.github.io/Projects',
+    'contact': 'https://alahimajnurosama.bio.link'
+  };
+
+  if (links[section]) {
+    showPreloader();
+    setTimeout(() => {
+      window.location.href = links[section];
+    }, 2000);
+  }
+}
+
+function showPreloader() {
+  const hackerMaskLoader = document.getElementById('hacker-mask-loader');
+  hackerMaskLoader.style.display = 'flex';
+  
+  setTimeout(() => {
+    hackerMaskLoader.style.display = 'none';
+    document.querySelector('.container').style.display = 'flex';
+  }, 5000);
+}
+
+document.querySelectorAll('.nav-button').forEach(button => {
+  button.addEventListener('click', function() {
+    const section = this.textContent.toLowerCase().replace(' ', '-');
+    navigate(section);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupMatrixEffect();
+  const welcomeScreen = document.getElementById('welcome-screen');
+  const enterButton = document.getElementById('enter-button');
+  const doorAnimation = document.getElementById('door-animation');
+  const hackerMaskLoader = document.getElementById('hacker-mask-loader');
+  const mainContent = document.querySelector('.container');
+
+  enterButton.addEventListener('click', () => {
+    welcomeScreen.style.display = 'none';
+    doorAnimation.style.display = 'block';
+    setTimeout(() => {
+      doorAnimation.classList.add('door-open');
+    }, 100);
+
+    setTimeout(() => {
+      doorAnimation.style.display = 'none';
+      hackerMaskLoader.style.display = 'flex';
+    }, 2500);
+
+    setTimeout(() => {
+      hackerMaskLoader.style.display = 'none';
+      mainContent.style.display = 'flex';
+    }, 4500);
+  });
+});
+
+document.getElementById('searchButton').addEventListener('click', function() {
+  document.getElementById('searchPanel').style.display = 'flex';
+  document.getElementById('overlay').style.display = 'block';
+});
+
+document.getElementById('infoButton').addEventListener('click', function() {
+  document.getElementById('infoContainer').style.display = 'flex';
+  document.getElementById('overlay').style.display = 'block';
+});
+
+document.getElementById('startSearch').addEventListener('click', function() {
+  const engine = document.getElementById('searchEngine').value;
+  const query = document.getElementById('searchInput').value;
+  let searchURL = "";
+  if (engine === "google") {
+    searchURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  } else if (engine === "bing") {
+    searchURL = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+  } else if (engine === "duckduckgo") {
+    searchURL = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+  } else {
+    searchURL = `https://www.startpage.com/do/dsearch?query=${encodeURIComponent(query)}`;
+  }
+  window.open(searchURL, '_blank');
+});
+
+document.getElementById('closeSearch').addEventListener('click', function() {
+  document.getElementById('searchPanel').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
+});
+
+document.getElementById('ipInfoButton').addEventListener('click', function() {
+  fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => {
+      const ipAddress = data.ip;
+      return fetch(`https://ipapi.co/${ipAddress}/json/`);
+    })
+    .then(response => response.json())
+    .then(data => {
+      const ipInfoHTML = `
+        <p><strong>IP:</strong> ${data.ip}</p>
+        <p><strong>City:</strong> ${data.city}</p>
+        <p><strong>Region:</strong> ${data.region}</p>
+        <p><strong>Country:</strong> ${data.country_name}</p>
+        <p><strong>Latitude:</strong> ${data.latitude}</p>
+        <p><strong>Longitude:</strong> ${data.longitude}</p>
+        <p><strong>Organization:</strong> ${data.org}</p>
+        <p><strong>Timezone:</strong> ${data.timezone}</p>
+      `;
+      document.getElementById('infoContent').innerHTML = ipInfoHTML;
+    });
+});
+
+document.getElementById('deviceInfoButton').addEventListener('click', function() {
+  const deviceInfoHTML = `
+    <p><strong>User Agent:</strong> ${navigator.userAgent}</p>
+    <p><strong>Device Type:</strong> ${/Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop'}</p>
+    <p><strong>Screen Resolution:</strong> ${window.screen.width} x ${window.screen.height}</p>
+    <p><strong>Color Depth:</strong> ${window.screen.colorDepth}-bit</p>
+    <p><strong>Browser Language:</strong> ${navigator.language}</p>
+    <p><strong>Platform:</strong> ${navigator.platform}</p>
+    <p><strong>Cookies Enabled:</strong> ${navigator.cookieEnabled ? 'Yes' : 'No'}</p>
+  `;
+  document.getElementById('infoContent').innerHTML = deviceInfoHTML;
+});
+
+document.getElementById('closeInfo').addEventListener('click', function() {
+  document.getElementById('infoContainer').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
+});
+
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('hacker-mask-loader').style.display = 'none';
+  }, 2000);
+});
+
+let dots = [];
+const dotCount = 100;
+const maxDist = 100;
+
+function setupMatrixEffect() {
+  const canvas = document.createElement('canvas');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  document.getElementById('matrix-container').appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = [];
+  for (let i = 0; i < columns; i++) {
+    drops[i] = 1;
+  }
+
+  const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#0f0';
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = matrix[Math.floor(Math.random() * matrix.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 35);
+}
+
+window.addEventListener('resize', () => {
+  const canvas = document.querySelector('#matrix-container canvas');
+  if (canvas) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+});
+</script>
+</body></html>
