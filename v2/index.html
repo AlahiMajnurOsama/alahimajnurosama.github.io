@@ -1,1 +1,1519 @@
+<html><head>
+	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alahi Majnur Osama</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Raleway:wght@300&display=swap');
+  
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f0e6d2;
+    font-family: 'Cinzel', serif;
+  }
+  canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  #title {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    z-index: 1000;
+    pointer-events: none;
+  }
+.glass-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 1000;
+  color: rgba(0, 0, 0, 0.8);
+  transition: color 0.5s ease;
+}
 
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.education-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 12px 8px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.education-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+  .card-icon {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+
+.education-card h3 {
+  font-size: 13px;
+  margin: 4px 0;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.education-card p {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.edu-details {
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+.edu-info {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 15px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.edu-info h3 {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.edu-info p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 8px 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.period {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+.gpa {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .glass-container {
+    width: 600px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 30px;
+    padding: 30px;
+    text-align: left;
+  }
+
+  .education-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+  }
+  
+  .education-card {
+    min-height: 90px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .glass-container {
+    width: 800px;
+    grid-template-columns: 250px 1fr;
+  }
+}
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    background: url('https://avatars.githubusercontent.com/majnurul') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      margin: 0;
+    }
+  }
+  .intro-text {
+    font-family: 'Raleway', sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 13px;
+    transition: color 0.5s ease;
+  }
+
+  @media screen and (min-width: 768px) {
+    .intro-text {
+      font-size: 15px;
+    }
+  }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+  }
+  .glass-button {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  #mode-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    text-align: center;
+    z-index: 1001;
+  }
+
+  #mode-toggle {
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  #mode-toggle::before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  #mode-toggle::after {
+    content: '';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f185'; /* sun icon */
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 8px;
+  }
+  #mode-toggle.night::before {
+    left: calc(100% - 26px);
+    background: rgba(30, 30, 60, 0.9);
+  }
+  #mode-toggle.night::after {
+    content: '\f186'; /* moon icon */
+    right: auto;
+    left: 8px;
+  }
+
+  .skills-container {
+    padding: 20px 10px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .skill-category {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .skill-category:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .category-header i {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .category-progress {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .category-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 10px;
+  }
+
+  .category-skill-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .category-skill-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .skill-name {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+  }
+
+  .skill-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+  }
+
+  .skill-header i {
+    font-size: 16px;
+    width: 20px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .skill-header span {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .skill-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0.3), 
+      rgba(255, 255, 255, 0.6)
+    );
+    border-radius: 3px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .skills-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .skills-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+
+  .skills-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+
+  #mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  #mode-toggle .switch-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, 
+      rgba(255,255,255,0.1), 
+      rgba(255,255,255,0.2));
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  #mode-toggle.switching {
+    animation: pulse 0.5s ease;
+  }
+  .social-icon {
+    width: 20px;
+    height: 20px;
+    fill: rgba(0, 0, 0, 0.8);
+    transition: fill 0.5s ease;
+  }
+  body.night-mode .glass-container,
+  body.night-mode .intro-text,
+  body.night-mode .glass-button {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  body.night-mode .social-icon {
+    fill: rgba(255, 255, 255, 0.9);
+  }
+
+  .experience-container {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+
+  .experience-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .experience-title {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  .experience-period {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .experience-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+  }
+
+  .experience-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .experience-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+
+  .experience-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    padding: 8px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .social-buttons {
+      margin-top: 25px;
+      justify-content: flex-start;
+    }
+  }
+
+  .social-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  body.night-mode .social-button {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .glass-container h2 {
+    font-family: 'Cinzel', serif;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    transition: color 0.5s ease;
+  }
+
+  @media screen and (min-width: 768px) {
+    .glass-container h2 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+  }
+
+  body.night-mode .glass-container h2 {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .portfolio-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1500;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding-top: 50px;
+  }
+
+  .portfolio-overlay.active {
+    opacity: 1;
+  }
+
+.portfolio-container {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+
+  .portfolio-overlay.active .portfolio-container {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+
+.portfolio-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+  .portfolio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .portfolio-card:hover::before {
+    transform: translateX(100%);
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+.card-icon {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+
+.portfolio-card h3 {
+  color: white;
+  margin-bottom: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+}
+
+
+.portfolio-card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.6;
+  font-size: 11px;
+  margin: 0;
+  opacity: 0.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.back-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  font-size: 12px;
+}
+
+
+  .back-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(-5px);
+  }
+
+  .back-button i {
+    font-size: 14px;
+  }
+
+  .portfolio-container h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Cinzel', serif;
+  }
+
+  .soft-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .soft-skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .soft-skill-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .soft-skill-name {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .soft-skill-percent {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: right;
+  }
+
+  .soft-skill-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 8px 0;
+  }
+
+  .soft-skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0.3), 
+      rgba(255, 255, 255, 0.6)
+    );
+    border-radius: 2px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .experience-container {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+
+  .experience-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .experience-title {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  .experience-period {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .experience-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+  }
+
+  .experience-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .experience-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+
+  .experience-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+<canvas id="auroraCanvas"></canvas>
+
+<div class="glass-container">
+  <div class="profile-section">
+    <div class="profile-image">👩‍💻</div>
+  </div>
+  <div class="content-section">
+    <div class="intro-text">
+    <h2>Alahi Majnur Osama</h2>
+    <p>Hello! I'm a creative developer passionate about building beautiful and interactive web experiences. I love exploring the intersection of art and technology.</p>
+  </div>
+  <div class="button-container">
+    <a href="#" class="glass-button" onclick="showPortfolio(); return false;">
+      <svg class="social-icon" viewBox="0 0 24 24">
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      </svg>
+      Portfolio
+    </a>
+    <a href="https://alahimajnurosama.github.io/Projects" class="glass-button">
+      <svg class="social-icon" viewBox="0 0 24 24">
+        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+      </svg>
+      Projects
+    </a>
+    
+    <!--
+    <a href="https://cv.example.com" class="glass-button">
+      <svg class="social-icon" viewBox="0 0 24 24">
+        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+      </svg>
+      CV
+    </a>
+    
+    -->
+    <a href="https://alahimajnurosama.bio.link/" class="glass-button">
+      <svg class="social-icon" viewBox="0 0 24 24">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      Contact Mail
+    </a>
+  </div>
+  <div class="social-buttons">
+    <a href="https://facebook.com/alahimajnurosama.official" class="social-button">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://wa.me/+8801642778252" class="social-button">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://t.me/MarkAtorny" class="social-button">
+      <i class="fab fa-telegram-plane"></i>
+    </a>
+    <a href="https://github.com/alahimajnurosama" class="social-button">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/alahimajnurosama" class="social-button">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://twitter.com/alahimajnur" class="social-button">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </div>
+</div>
+
+<div id="mode-container">
+  <div id="mode-toggle">
+    <div class="switch-overlay"></div>
+  </div>
+</div>
+
+<script type="x-shader/x-vertex" id="vertexShader">
+  void main() {
+    gl_Position = vec4(position, 1.0);
+  }
+</script>
+
+<script type="x-shader/x-fragment" id="fragmentShader">
+  uniform float time;
+  uniform vec2 resolution;
+  uniform float isNightMode;
+
+  #define PI 3.14159265359
+
+  vec2 rotate(vec2 v, float a) {
+    float s = sin(a);
+    float c = cos(a);
+    mat2 m = mat2(c, -s, s, c);
+    return m * v;
+  }
+
+  float fbm(vec2 st) {
+    float v = 0.0;
+    float a = 0.5;
+    vec2 shift = vec2(100.0);
+    mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
+    for (int i = 0; i < 5; ++i) {
+      v += a * sin(st.x * 3.0 + time * 0.1) * cos(st.y * 4.0);
+      st = rot * st * 2.0 + shift;
+      a *= 0.5;
+    }
+    return v;
+  }
+
+  vec3 dayScene(vec2 uv) {
+    vec2 q = vec2(0.);
+    q.x = fbm(uv + 0.1*time);
+    q.y = fbm(uv + vec2(1.0));
+    vec2 r = vec2(0.);
+    r.x = fbm(uv + 1.0*q + vec2(1.7,9.2)+ 0.15*time);
+    r.y = fbm(uv + 1.0*q + vec2(8.3,2.8)+ 0.126*time);
+    float f = fbm(uv+r);
+    
+    vec3 color = mix(
+      vec3(0.4, 0.7, 0.9),
+      vec3(0.5, 0.8, 1.0),
+      clamp((f*f)*4.0,0.0,1.0)
+    );
+    
+    float caustics = sin(uv.x * 20.0 + time * 2.0) * sin(uv.y * 20.0 + time * 1.5) * 0.5 + 0.5;
+    color += caustics * vec3(0.2, 0.2, 0.1);
+
+    float sandPattern = fbm(uv * 3.0 + time * 0.1);
+    vec3 sandColor = vec3(0.94, 0.90, 0.82);
+    float sandMix = smoothstep(-1.2, 0.5, uv.y);
+    color = mix(sandColor, color, sandMix);
+
+    return color * (f*f*f+0.6*f*f+0.8);
+  }
+
+  vec3 nightScene(vec2 uv) {
+    vec2 q = vec2(0.);
+    q.x = fbm(uv + 0.1*time);
+    q.y = fbm(uv + vec2(1.0));
+    vec2 r = vec2(0.);
+    r.x = fbm(uv + 1.0*q + vec2(1.7,9.2)+ 0.15*time);
+    r.y = fbm(uv + 1.0*q + vec2(8.3,2.8)+ 0.126*time);
+    float f = fbm(uv+r);
+    
+    vec3 color = mix(
+      vec3(0.1, 0.2, 0.3),
+      vec3(0.2, 0.3, 0.4),
+      clamp((f*f)*4.0,0.0,1.0)
+    );
+    
+    float moonGlow = pow(1.0 - length(uv - vec2(0.5, 0.3)), 2.0);
+    color += moonGlow * vec3(0.1, 0.2, 0.3);
+
+    float stars = step(0.98, fbm(uv * 50.0));
+    color += stars * vec3(0.8);
+
+    return color * (f*f*f+0.6*f*f+0.5);
+  }
+
+  void main() {
+    vec2 uv = gl_FragCoord.xy / resolution.xy;
+    uv = uv * 2.0 - 1.0;
+    uv.x *= resolution.x / resolution.y;
+    
+    uv = rotate(uv, sin(time * 0.1) * 0.1);
+    
+    vec3 dayColor = dayScene(uv * 2.0);
+    vec3 nightColor = nightScene(uv * 2.0);
+    
+    vec3 finalColor = mix(dayColor, nightColor, isNightMode);
+    
+    float vignette = 1.0 - length(uv) * 0.3;
+    finalColor *= vignette;
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+  }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  // Portfolio Modal Functions
+  function showPortfolio() {
+    const overlay = document.createElement('div');
+    overlay.className = 'portfolio-overlay';
+    
+    overlay.innerHTML = `
+      <div class="portfolio-container">
+        <button class="back-button">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <h2>My Skills & Experience</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-card" onclick="expandCard(this);">
+            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Education</h3>
+            <p>BSc & MSc in Computer Science</p>
+          </div>
+          <div class="portfolio-card" onclick="expandCard(this);">
+            <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+            <h3>Experience</h3>
+            <p>5+ years Full Stack Development</p>
+          </div>
+          <div class="portfolio-card">
+            <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Tech Skills</h3>
+            <p>JS, React, Node.js, Python</p>
+          </div>
+          
+          <!--
+          <div class="portfolio-card">
+            <div class="card-icon"><i class="fas fa-users"></i></div>
+            <h3>Soft Skills</h3>
+            <p>Leadership & Communication</p>
+          </div>
+        </div>
+        -->
+        	
+        
+      </div>
+    `;
+    
+    document.body.appendChild(overlay);
+    
+    // Trigger animation
+    requestAnimationFrame(() => {
+      overlay.classList.add('active');
+    });
+    
+    const backBtn = overlay.querySelector('.back-button');
+    backBtn.onclick = () => {
+      overlay.classList.remove('active');
+      setTimeout(() => overlay.remove(), 300);
+    };
+    
+    // Card click handlers
+    const cards = overlay.querySelectorAll('.portfolio-card');
+    cards.forEach(card => {
+      card.onclick = () => expandCard(card);
+    });
+  }
+
+  function expandCard(card) {
+    const title = card.querySelector('h3').textContent;
+    if (title === 'Education') {
+      showEducationDetails();
+    } else if (title === 'Experience') {
+      showExperienceDetails();
+    } else if (title === 'Tech Skills') {
+      showTechSkills();
+    }
+  }
+
+  function showExperienceDetails() {
+    const detailsOverlay = document.createElement('div');
+    detailsOverlay.className = 'portfolio-overlay details-overlay';
+    
+    detailsOverlay.innerHTML = `
+        <div class="portfolio-container">
+            <button class="back-button">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <h2>Experience Timeline</h2>
+            <div class="experience-container">
+                <div class="experience-item">
+                    <div class="experience-title">
+                      <i class="fas fa-crown"></i> 
+                      Founder & Chief Executive Officer
+                    </div>
+                    <div class="experience-period">
+                      <i class="far fa-calendar-alt"></i> 2022-Present
+                    </div>
+                    <div class="experience-description">
+                        Founder & Executive officer in A geek programme called Urbanism and a Cyber Security Team named "Team Urban".
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">
+                      <i class="fas fa-laptop-code"></i> 
+                      Freelancer
+                    </div>
+                    <div class="experience-period">
+                      <i class="far fa-calendar-alt"></i> 2022-present
+                    </div>
+                    <div class="experience-description">
+                        Starting Carrier as a Digital marketter
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">
+                      <i class="fas fa-code"></i>
+                      Web Designer and Web Application Tester
+                    </div>
+                    <div class="experience-period">
+                      <i class="far fa-calendar-alt"></i> 2020-2023
+                    </div>
+                    <div class="experience-description">
+                        Starting a career as a freelance web application tester and later as a reverse engineer.
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(detailsOverlay);
+    requestAnimationFrame(() => detailsOverlay.classList.add('active'));
+
+    const backBtn = detailsOverlay.querySelector('.back-button');
+    backBtn.onclick = () => {
+        detailsOverlay.classList.remove('active');
+        setTimeout(() => detailsOverlay.remove(), 300);
+    };
+  }
+
+  function showEducationDetails() {
+    const eduOverlay = document.createElement('div');
+    eduOverlay.className = 'portfolio-overlay education-overlay';
+    
+    eduOverlay.innerHTML = `
+      <div class="portfolio-container education-container">
+        <button class="back-button">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <h2>Education Timeline</h2>
+        <div class="education-grid">
+          <div class="education-card" data-edu="university">
+            <div class="card-icon"><i class="fas fa-university"></i></div>
+            <h3>University</h3>
+            <p>BGC Trust University Bangladesh</p>
+          </div>
+          <div class="education-card" data-edu="hsc">
+            <div class="card-icon"><i class="fas fa-school"></i></div>
+            <h3>Higher Secondary</h3>
+            <p>Al Haz Mostofa Hakim Degree College</p>
+          </div>
+          <div class="education-card" data-edu="ssc">
+            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Secondary School</h3>
+            <p>Safa Motaleb High School</p>
+          </div>
+          <div class="education-card" data-edu="jsc">
+            <div class="card-icon"><i class="fas fa-book"></i></div>
+            <h3>Junior School</h3>
+            <p>Govt. Muslim High School</p>
+          </div>
+          <div class="education-card" data-edu="psc">
+            <div class="card-icon"><i class="fas fa-child"></i></div>
+            <h3>Primary School</h3>
+            <p>Firingee Bazar Govt. School</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(eduOverlay);
+    requestAnimationFrame(() => eduOverlay.classList.add('active'));
+
+    const backBtn = eduOverlay.querySelector('.back-button');
+    backBtn.onclick = () => {
+      eduOverlay.classList.remove('active');
+      setTimeout(() => eduOverlay.remove(), 300);
+    };
+
+    const eduCards = eduOverlay.querySelectorAll('.education-card');
+    eduCards.forEach(card => {
+      card.onclick = () => showEduDetails(card.dataset.edu);
+    });
+  }
+
+  function showEduDetails(eduType) {
+    const eduData = {
+      university: {
+        title: "University Education",
+        school: "BGC Trust University Bangladesh",
+        period: "2023-Present",
+        details: "BSc. in Computer Science and Engineering",
+        gpa: "Currently Studying"
+      },
+      hsc: {
+        title: "Higher Secondary Education",
+        school: "Uttar Kattali Al Haz Mostofa Hakim Degree College",
+        period: "2020-2022",
+        details: "Science Group",
+        gpa: "GPA 4.25 out of 5.0"
+      },
+      ssc: {
+        title: "Secondary School Certificate",
+        school: "Safa Motaleb High School",
+        period: "2018-2019",
+        details: "Science Group",
+        gpa: "GPA 4.50 out of 5.0"
+      },
+      jsc: {
+        title: "Junior School Certificate",
+        school: "Govt. Muslim High School",
+        period: "2017",
+        details: "",
+        gpa: "GPA 4.57 out of 5.0"
+      },
+      psc: {
+        title: "Primary School Certificate",
+        school: "Firingee Bazar Govt. primary School",
+        period: "2014",
+        details: "",
+        gpa: "GPA 5.0 out of 5.0"
+      }
+    };
+
+    const data = eduData[eduType];
+    const detailsOverlay = document.createElement('div');
+    detailsOverlay.className = 'portfolio-overlay details-overlay';
+    
+    detailsOverlay.innerHTML = `
+      <div class="portfolio-container details-container">
+        <button class="back-button">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <div class="edu-details">
+          <h2>${data.title}</h2>
+          <div class="edu-info">
+            <h3>${data.school}</h3>
+            <p class="period">${data.period}</p>
+            <p class="details">${data.details}</p>
+            <p class="gpa">${data.gpa}</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(detailsOverlay);
+    requestAnimationFrame(() => detailsOverlay.classList.add('active'));
+
+    const backBtn = detailsOverlay.querySelector('.back-button');
+    backBtn.onclick = () => {
+      detailsOverlay.classList.remove('active');
+      setTimeout(() => detailsOverlay.remove(), 300);
+    };
+  }
+
+  const canvas = document.getElementById('auroraCanvas');
+  const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+
+  const geometry = new THREE.PlaneGeometry(2, 2);
+  const uniforms = {
+    time: { value: 0 },
+    resolution: { value: new THREE.Vector2() },
+    isNightMode: { value: 0 }
+  };
+
+  const material = new THREE.ShaderMaterial({
+    uniforms: uniforms,
+    vertexShader: document.getElementById('vertexShader').textContent,
+    fragmentShader: document.getElementById('fragmentShader').textContent
+  });
+
+  const mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+
+  function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
+
+  let targetNightValue = 0;
+  let currentNightValue = 0;
+  const transitionSpeed = 0.05;
+
+  function render(time) {
+    time *= 0.001;
+
+    // Smooth transition between day and night
+    currentNightValue += (targetNightValue - currentNightValue) * transitionSpeed;
+    uniforms.isNightMode.value = currentNightValue;
+
+    resizeRendererToDisplaySize(renderer);
+
+    const canvas = renderer.domElement;
+    uniforms.resolution.value.set(canvas.width, canvas.height);
+    uniforms.time.value = time;
+
+    renderer.render(scene, camera);
+
+  requestAnimationFrame(render);
+}
+
+const skillCategories = {
+  development: {
+    name: "Development",
+    icon: "fas fa-code",
+    percent: 80,
+    skills: ["HTML", "CSS", "JavaScript", "Python", "C++", "GitHub", "Responsive Design"]
+  },
+  softSkills: {
+    name: "Soft Skills & Ethics",
+    icon: "fas fa-handshake",
+    percent: 85,
+    skills: [
+      {skill: "Creativity", percent: 93},
+      {skill: "Communication", percent: 82},
+      {skill: "Team Management", percent: 80},
+      {skill: "Time Management", percent: 85},
+      {skill: "Problem Solving", percent: 80},
+      {skill: "Leadership", percent: 88},
+      {skill: "Team Work", percent: 81},
+      {skill: "Quick Learner", percent: 78}
+    ]
+  },
+  cybersecurity: {
+    name: "Cyber Security",
+    icon: "fas fa-shield-alt", 
+    percent: 80,
+    skills: ["Penetration Testing", "Network Security", "Cryptography", "Wireshark", "Metasploit", "Nmap", "Threat Analysis", "OSINT", "Ethical Hacking", "Vulnerability Scanning", "Malware Analysis"]
+  },
+  systemAdmin: {
+    name: "System Administration",
+    icon: "fas fa-server",
+    percent: 70,
+    skills: ["Linux", "Virtualization", "Containerization", "Docker", "PowerShell", "Bash", "SSH"]
+  },
+  cloudComputing: {
+    name: "Cloud & DevOps",
+    icon: "fas fa-cloud",
+    percent: 75,
+    skills: ["AWS", "Azure Security", "Cloud Security", "Netlify", "Vercel"]
+  },
+  design: {
+    name: "Design & Branding",
+    icon: "fas fa-paint-brush",
+    percent: 90,
+    skills: ["UI Design", "UX Design", "WordPress", "Branding"]
+  },
+  aiAndResearch: {
+    name: "AI & Research",
+    icon: "fas fa-brain",
+    percent: 75,
+    skills: ["AI in Security", "Machine Learning", "Research Writing", "Security Tool Development"]
+  },
+  networkSecurity: {
+    name: "Network & Infrastructure",
+    icon: "fas fa-network-wired",
+    percent: 85,
+    skills: ["Advanced Networking", "Firewalls", "VPNs", "SSL/TLS", "Security Awareness"]
+  }
+};
+
+function showTechSkills() {
+  const detailsOverlay = document.createElement('div');
+  detailsOverlay.className = 'portfolio-overlay details-overlay';
+  
+  detailsOverlay.innerHTML = `
+    <div class="portfolio-container">
+      <button class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+      <h2>Technical Proficiency</h2>
+      <div class="skills-container">
+        ${Object.values(skillCategories).map(category => `
+          <div class="skill-category" onclick="showCategoryDetails('${category.name}')">
+            <div class="skill-header">
+              <i class="${category.icon}"></i>
+              <span>${category.name}</span>
+              <span class="percentage">${category.percent}%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill" style="width: ${category.percent}%"></div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(detailsOverlay);
+  requestAnimationFrame(() => detailsOverlay.classList.add('active'));
+
+  const backBtn = detailsOverlay.querySelector('.back-button');
+  backBtn.onclick = () => {
+    detailsOverlay.classList.remove('active');
+    setTimeout(() => detailsOverlay.remove(), 300);
+  };
+}
+
+function showCategoryDetails(categoryName) {
+  const category = Object.values(skillCategories).find(cat => cat.name === categoryName);
+  
+  const detailsOverlay = document.createElement('div');
+  detailsOverlay.className = 'portfolio-overlay category-details-overlay';
+  
+  let content;
+  if (category.name === "Soft Skills & Ethics") {
+    content = `
+      <div class="soft-skills-grid">
+        ${category.skills.map(item => `
+          <div class="soft-skill-card">
+            <div class="soft-skill-name">${item.skill}</div>
+            <div class="soft-skill-bar">
+              <div class="soft-skill-fill" style="width: ${item.percent}%"></div>
+            </div>
+            <div class="soft-skill-percent">${item.percent}%</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  } else {
+    content = `
+      <div class="category-skills-grid">
+        ${category.skills.map(skill => `
+          <div class="category-skill-item">
+            <div class="skill-name">${skill}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  detailsOverlay.innerHTML = `
+    <div class="portfolio-container">
+      <button class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+      <div class="category-header">
+        <i class="${category.icon}"></i>
+        <h2>${category.name}</h2>
+        <div class="category-progress">
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: ${category.percent}%"></div>
+          </div>
+          <span class="percentage">${category.percent}%</span>
+        </div>
+      </div>
+      ${content}
+    </div>
+  `;
+
+  document.body.appendChild(detailsOverlay);
+  requestAnimationFrame(() => detailsOverlay.classList.add('active'));
+
+  const backBtn = detailsOverlay.querySelector('.back-button');
+  backBtn.onclick = () => {
+    detailsOverlay.classList.remove('active');
+    setTimeout(() => detailsOverlay.remove(), 300);
+  };
+}
+
+
+  requestAnimationFrame(render);
+
+  window.addEventListener('resize', function() {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    uniforms.resolution.value.set(window.innerWidth, window.innerHeight);
+  });
+
+  const modeToggle = document.getElementById('mode-toggle');
+  const modeLabel = document.getElementById('mode-label');
+  let isNightMode = false;
+
+  modeToggle.addEventListener('click', function() {
+    isNightMode = !isNightMode;
+    targetNightValue = isNightMode ? 1 : 0;
+    modeToggle.classList.toggle('night');
+    modeToggle.classList.add('switching');
+    setTimeout(() => {
+      modeToggle.classList.remove('switching');
+    }, 500);
+    document.body.style.backgroundColor = isNightMode ? '#1a1a2e' : '#f0e6d2';
+    document.body.classList.toggle('night-mode', isNightMode);
+  });
+</script>
+</body></html>
