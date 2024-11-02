@@ -3,6 +3,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alahi Majnur Osama</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Raleway:wght@300&display=swap');
   
@@ -843,15 +845,136 @@
     background: rgba(255, 255, 255, 0.2);
     border-radius: 3px;
   }
+        #info-toggle {
+            position: absolute;
+            top: 15px;
+            left: 18px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        #info-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+    #info-panel {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    background: rgba(255, 255, 255, 0.8); /* Increased opacity */
+    backdrop-filter: blur(100px); /* Increased blur effect */
+    border-radius: 15px;
+    padding: 20px;
+    z-index: 1002;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.4); /* Enhanced shadow */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Enhanced border visibility */
+}
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        .info-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 5px;
+            color: rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+        }
+
+        .info-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        #info-display {
+            margin-top: 20px;
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 14px;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        #search-input::placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        #perform-search {
+            background: rgba(58, 123, 213, 0.6);
+            color: white;
+        }
+
+        #perform-search:hover {
+            background: rgba(58, 123, 213, 0.8);
+        }
+        body.night-mode #info-toggle {
+  color: rgba(255, 255, 255, 0.9);
+}
 </style>
 </head>
 <body>
 <canvas id="auroraCanvas"></canvas>
 
-<div class="glass-container">
-  <div class="profile-section">
-    <div class="profile-image">👩‍💻</div>
-  </div>
+   <div class="glass-container">
+        <div class="profile-section">
+            <div class="profile-image">👩‍💻</div>
+            <div id="info-toggle">
+                <i class="fas fa-info"></i>
+            </div>
+        </div>
+        
+       <div id="info-panel">
+    <button id="close-info" class="close-button"><i class="fas fa-times"></i></button>
+    <div class="info-content">
+        <button id="search-btn" class="info-button">Search</button>
+        <button id="device-info-btn" class="info-button">Device Info</button>
+        <button id="ip-info-btn" class="info-button">IP Info</button>
+    </div>
+    <div id="info-display"></div>
+</div>
+
   <div class="content-section">
     <div class="intro-text">
     <h2>Alahi Majnur Osama</h2>
@@ -888,22 +1011,22 @@
     </a>
   </div>
   <div class="social-buttons">
-    <a href="https://facebook.com/alahimajnurosama.official" class="social-button" target="_blank">
+    <a href="https://facebook.com/alahimajnurosama.official" class="social-button">
       <i class="fab fa-facebook-f"></i>
     </a>
-    <a href="https://wa.me/+8801642778252" class="social-button" target="_blank">
+    <a href="https://wa.me/+8801642778252" class="social-button">
       <i class="fab fa-whatsapp"></i>
     </a>
-    <a href="https://t.me/MarkAtorny" class="social-button" target="_blank">
+    <a href="https://t.me/MarkAtorny" class="social-button">
       <i class="fab fa-telegram-plane"></i>
     </a>
-    <a href="https://github.com/alahimajnurosama" class="social-button" target="_blank">
+    <a href="https://github.com/alahimajnurosama" class="social-button">
       <i class="fab fa-github"></i>
     </a>
-    <a href="https://www.linkedin.com/in/alahimajnurosama" class="social-button" target="_blank">
+    <a href="https://www.linkedin.com/in/alahimajnurosama" class="social-button">
       <i class="fab fa-linkedin-in"></i>
     </a>
-    <a href="https://twitter.com/alahimajnur" class="social-button" target="_blank">
+    <a href="https://twitter.com/alahimajnur" class="social-button">
       <i class="fab fa-twitter"></i>
     </a>
   </div>
@@ -1515,5 +1638,98 @@ function showCategoryDetails(categoryName) {
     document.body.style.backgroundColor = isNightMode ? '#1a1a2e' : '#f0e6d2';
     document.body.classList.toggle('night-mode', isNightMode);
   });
+  
+   document.addEventListener('DOMContentLoaded', function() {
+            const infoToggle = document.getElementById('info-toggle');
+            const infoPanel = document.getElementById('info-panel');
+            const closeInfo = document.getElementById('close-info');
+            const searchBtn = document.getElementById('search-btn');
+            const deviceInfoBtn = document.getElementById('device-info-btn');
+            const ipInfoBtn = document.getElementById('ip-info-btn');
+            const infoDisplay = document.getElementById('info-display');
+
+            infoToggle.addEventListener('click', function() {
+                infoPanel.style.display = 'block';
+            });
+
+            closeInfo.addEventListener('click', function() {
+                infoPanel.style.display = 'none';
+            });
+
+            searchBtn.addEventListener('click', function() {
+    infoDisplay.innerHTML = `
+        <input type="text" id="search-input" placeholder="Enter search term">
+        <div id="search-options">
+            <label for="search-engine">Choose a search engine:</label>
+            <select id="search-engine">
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="duckduckgo">DuckDuckGo</option>
+                <option value="startpage">Startpage</option>
+            </select>
+        </div>
+        <button id="perform-search" class="info-button">Search</button> 
+    `;
+                document.getElementById('perform-search').addEventListener('click', function() {
+        const searchTerm = document.getElementById('search-input').value;
+        const selectedEngine = document.getElementById('search-engine').value; // Get selected search engine
+        let searchURL;
+
+        // Build URL based on selected search engine
+        if (selectedEngine === "google") {
+            searchURL = `https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`;
+        } else if (selectedEngine === "bing") {
+            searchURL = `https://www.bing.com/search?q=${encodeURIComponent(searchTerm)}`;
+        } else if (selectedEngine === "duckduckgo") {
+            searchURL = `https://duckduckgo.com/?q=${encodeURIComponent(searchTerm)}`;
+        } else {
+            searchURL = `https://www.startpage.com/do/dsearch?query=${encodeURIComponent(searchTerm)}`;
+        }
+
+        window.open(searchURL, '_blank');
+    });
+});
+
+            deviceInfoBtn.addEventListener('click', function() {
+                const deviceInfo = `
+                    <p><strong>User Agent:</strong> ${navigator.userAgent}</p>
+                    <p><strong>Platform:</strong> ${navigator.platform}</p>
+                    <p><strong>Screen:</strong> ${window.screen.width}x${window.screen.height}</p>
+                    <p><strong>Color Depth:</strong> ${window.screen.colorDepth}-bit</p>
+                    <p><strong>Language:</strong> ${navigator.language}</p>
+                `;
+                infoDisplay.innerHTML = deviceInfo;
+            });
+
+            ipInfoBtn.addEventListener('click', function() {
+                infoDisplay.innerHTML = '<p>Fetching IP information...</p>';
+                fetch('https://api.ipify.org?format=json')
+                    .then(response => response.json())
+                    .then(data => {
+                        infoDisplay.innerHTML = `<p><strong>Your IP:</strong> ${data.ip}</p>`;
+                        return fetch(`https://ipapi.co/${data.ip}/json/`);
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        infoDisplay.innerHTML += `
+                            <p><strong>City:</strong> ${data.city}</p>
+                            <p><strong>Region:</strong> ${data.region}</p>
+                            <p><strong>Country:</strong> ${data.country_name}</p>
+                            <p><strong>ISP:</strong> ${data.org}</p>
+                        `;
+                    })
+                    .catch(error => {
+                        infoDisplay.innerHTML = '<p>Failed to fetch IP information</p>';
+                        console.error('Error:', error);
+                    });
+            });
+
+            window.addEventListener('click', function(event) {
+                if (!infoPanel.contains(event.target) && event.target !== infoToggle) {
+                    infoPanel.style.display = 'none';
+                }
+            });
+        });
+        
 </script>
 </body></html>
