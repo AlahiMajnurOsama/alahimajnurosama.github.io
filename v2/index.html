@@ -199,7 +199,23 @@
     font-size: 13px;
     transition: color 0.5s ease;
   }
-
+  
+    .animated-description {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+    .animated-text {
+      font-weight: 100;
+      font-size: 12px;
+      color: #FAFAFA;
+    }
+    .scramble-char {
+      color: #757575;
+    }
+	
   @media screen and (min-width: 768px) {
     .intro-text {
       font-size: 15px;
@@ -977,9 +993,14 @@
 
   <div class="content-section">
     <div class="intro-text">
-    <h2>Alahi Majnur Osama</h2>
-    <p>Hello! I'm a creative developer passionate about building beautiful and interactive web experiences. I love exploring the intersection of art and technology.</p>
-  </div>
+    <h2>Alahi Majnur Osama</h2> 
+    <div class="container">
+  <div class="text"></div>
+</div>
+<div class="animated-description">
+    <div class="animated-text"></div>
+  </div> <br>
+     
   <div class="button-container">
     <a href="#" class="glass-button" onclick="showPortfolio(); return false;">
       <svg class="social-icon" viewBox="0 0 24 24">
@@ -1003,7 +1024,7 @@
     </a>
     
     -->
-    <a href="https://alahimajnurosama.bio.link/" class="glass-button" target="_blank">
+    <a href="https://alahimajnurosama.bio.link/" class="glass-button">
       <svg class="social-icon" viewBox="0 0 24 24">
         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
       </svg>
@@ -1011,22 +1032,22 @@
     </a>
   </div>
   <div class="social-buttons">
-    <a href="https://facebook.com/alahimajnurosama.official" class="social-button" target="_blank">
+    <a href="https://facebook.com/alahimajnurosama.official" class="social-button">
       <i class="fab fa-facebook-f"></i>
     </a>
-    <a href="https://wa.me/+8801642778252" class="social-button" target="_blank">
+    <a href="https://wa.me/+8801642778252" class="social-button">
       <i class="fab fa-whatsapp"></i>
     </a>
-    <a href="https://t.me/MarkAtorny" class="social-button" target="_blank">
+    <a href="https://t.me/MarkAtorny" class="social-button">
       <i class="fab fa-telegram-plane"></i>
     </a>
-    <a href="https://github.com/alahimajnurosama" class="social-button" target="_blank">
+    <a href="https://github.com/alahimajnurosama" class="social-button">
       <i class="fab fa-github"></i>
     </a>
-    <a href="https://www.linkedin.com/in/alahimajnurosama" class="social-button" target="_blank">
+    <a href="https://www.linkedin.com/in/alahimajnurosama" class="social-button">
       <i class="fab fa-linkedin-in"></i>
     </a>
-    <a href="https://twitter.com/alahimajnur" class="social-button" target="_blank">
+    <a href="https://twitter.com/alahimajnur" class="social-button">
       <i class="fab fa-twitter"></i>
     </a>
   </div>
@@ -1731,5 +1752,79 @@ function showCategoryDetails(categoryName) {
             });
         });
         
+        
+    // TextScramble Class
+    class TextScramble {
+      constructor(el) {
+        this.el = el;
+        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        this.update = this.update.bind(this);
+      }
+      setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => (this.resolve = resolve));
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+          const from = oldText[i] || '';
+          const to = newText[i] || '';
+          const start = Math.floor(Math.random() * 40);
+          const end = start + Math.floor(Math.random() * 40);
+          this.queue.push({ from, to, start, end });
+        }
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
+      }
+      update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+          let { from, to, start, end, char } = this.queue[i];
+          if (this.frame >= end) {
+            complete++;
+            output += to;
+          } else if (this.frame >= start) {
+            if (!char || Math.random() < 0.28) {
+              char = this.randomChar();
+              this.queue[i].char = char;
+            }
+            output += `<span class="scramble-char">${char}</span>`;
+          } else {
+            output += from;
+          }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+          this.resolve();
+        } else {
+          this.frameRequest = requestAnimationFrame(this.update);
+          this.frame++;
+        }
+      }
+      randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+      }
+    }
+
+    // Example
+    const phrases = [
+      'Assalamualaikum, I`m Alahi Majnur Osama.', 'Currently Studing BSC in CSE', 
+      'A Cyber Security Researcher', 'A Student & A Explorer'
+    ];
+
+    const el = document.querySelector('.animated-text');
+    const fx = new TextScramble(el);
+
+    let counter = 0;
+    const next = () => {
+      fx.setText(phrases[counter]).then(() => {
+        setTimeout(next, 800);
+      });
+      counter = (counter + 1) % phrases.length;
+    };
+
+    next();
 </script>
 </body></html>
