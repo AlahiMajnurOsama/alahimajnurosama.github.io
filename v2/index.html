@@ -178,7 +178,7 @@
     border-radius: 50%;
     margin: 0 auto 15px;
     border: 3px solid rgba(255, 255, 255, 0.3);
-    background: url('https://avatars.githubusercontent.com/majnurul') center/cover;
+    background: url('https://avatars.githubusercontent.com/u/123330241?v=4') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -200,22 +200,38 @@
     transition: color 0.5s ease;
   }
   
-    .animated-description {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-    }
-    .animated-text {
-      font-weight: 100;
-      font-size: 12px;
-      color: #FAFAFA;
-    }
-    .scramble-char {
-      color: #757575;
-    }
-	
+   body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f0e6d2;
+            font-family: 'Cinzel', serif;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        #title {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(0, 0, 0, 0.7);
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            z-index: 1000;
+            pointer-events: none;
+        }
+        
+        .animated-text {
+            font-weight: 100;
+            font-size: 12px;
+            color: #FAFAFA;
+        }
   @media screen and (min-width: 768px) {
     .intro-text {
       font-size: 15px;
@@ -1130,7 +1146,7 @@
 
    <div class="glass-container">
         <div class="profile-section">
-            <div class="profile-image">👩‍💻</div>
+            <div class="profile-image"></div>
             <div id="info-toggle">
                 <i class="fas fa-info"></i>
             </div>
@@ -1915,79 +1931,53 @@ function showCategoryDetails(categoryName) {
         });
         
         
-    // TextScramble Class
-    class TextScramble {
-      constructor(el) {
-        this.el = el;
-        this.chars = '!<>-_\\/[]{}—=+*^?#________';
-        this.update = this.update.bind(this);
-      }
-      setText(newText) {
-        const oldText = this.el.innerText;
-        const length = Math.max(oldText.length, newText.length);
-        const promise = new Promise((resolve) => (this.resolve = resolve));
-        this.queue = [];
-        for (let i = 0; i < length; i++) {
-          const from = oldText[i] || '';
-          const to = newText[i] || '';
-          const start = Math.floor(Math.random() * 40);
-          const end = start + Math.floor(Math.random() * 40);
-          this.queue.push({ from, to, start, end });
-        }
-        cancelAnimationFrame(this.frameRequest);
-        this.frame = 0;
-        this.update();
-        return promise;
-      }
-      update() {
-        let output = '';
-        let complete = 0;
-        for (let i = 0, n = this.queue.length; i < n; i++) {
-          let { from, to, start, end, char } = this.queue[i];
-          if (this.frame >= end) {
-            complete++;
-            output += to;
-          } else if (this.frame >= start) {
-            if (!char || Math.random() < 0.28) {
-              char = this.randomChar();
-              this.queue[i].char = char;
+class Typewriter {
+            constructor(el, texts, delay = 80, pauseDuration = 1000) {
+                this.el = el;
+                this.texts = texts;
+                this.currentText = '';
+                this.textIndex = 0;
+                this.charIndex = 0;
+                this.delay = delay;
+                this.pauseDuration = pauseDuration;
+                this.typing();
             }
-            output += `<span class="scramble-char">${char}</span>`;
-          } else {
-            output += from;
-          }
+
+            typing() {
+                if (this.charIndex < this.texts[this.textIndex].length) {
+                    this.currentText += this.texts[this.textIndex].charAt(this.charIndex);
+                    this.el.innerHTML = this.currentText;
+                    this.charIndex++;
+                    setTimeout(() => this.typing(), this.delay);
+                } else {
+                    setTimeout(() => this.erasing(), this.pauseDuration);
+                }
+            }
+
+            erasing() {
+                if (this.charIndex > 0) {
+                    this.currentText = this.currentText.slice(0, -1);
+                    this.el.innerHTML = this.currentText;
+                    this.charIndex--;
+                    setTimeout(() => this.erasing(), this.delay);
+                } else {
+                    this.textIndex = (this.textIndex + 1) % this.texts.length; // Cycle through the texts
+                    setTimeout(() => this.typing(), this.pauseDuration);
+                }
+            }
         }
-        this.el.innerHTML = output;
-        if (complete === this.queue.length) {
-          this.resolve();
-        } else {
-          this.frameRequest = requestAnimationFrame(this.update);
-          this.frame++;
-        }
-      }
-      randomChar() {
-        return this.chars[Math.floor(Math.random() * this.chars.length)];
-      }
-    }
 
-    // Example
-    const phrases = [
-      'Assalamualaikum, I`m Alahi Majnur Osama.', 'Currently Studing BSC in CSE', 
-      'A Cyber Security Researcher', 'A Student & A Explorer'
-    ];
+        // Example texts
+        const texts = [
+            'Assalamualaikum, I\'m Alahi Majnur Osama.',
+            'Currently Studying BSC in CSE....',
+            'A Cyber Security Researcher......',
+            'A Student & A Explorer......'
+        ];
 
-    const el = document.querySelector('.animated-text');
-    const fx = new TextScramble(el);
-
-    let counter = 0;
-    const next = () => {
-      fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 800);
-      });
-      counter = (counter + 1) % phrases.length;
-    };
-
-    next();
+        const el = document.querySelector('.animated-text');
+        new Typewriter(el, texts);
+    
     
     function showAchievements() {
   const achievementsOverlay = document.createElement('div');
