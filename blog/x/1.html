@@ -1,0 +1,331 @@
+<html><head><base href="https://example.com/blog/urban-design-trends-2024">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Design Trends 2024 - Urban Stories</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .article-header {
+        position: relative;
+        height: 60vh;
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+                    url('https://images.unsplash.com/photo-1486325212027-8081e485255e');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .header-content {
+        max-width: 800px;
+    }
+
+    .header-content h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+
+    .time-widget {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        z-index: 100;
+    }
+
+    .clock {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 10px 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .calendar-icon {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .calendar-popup {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    .article-content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .article-section {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .article-section h2 {
+        color: #1a73e8;
+        margin-bottom: 20px;
+    }
+
+    .trend-card {
+        border-left: 4px solid #1a73e8;
+        padding-left: 20px;
+        margin: 20px 0;
+        background: #f8f9fa;
+        border-radius: 0 10px 10px 0;
+        padding: 20px;
+    }
+
+    .trend-card h3 {
+        color: #1a73e8;
+        margin-bottom: 10px;
+    }
+
+    .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-image:hover {
+        transform: scale(1.05);
+    }
+
+    .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #1a73e8;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
+    }
+
+    @media (max-width: 768px) {
+        .header-content h1 {
+            font-size: 2em;
+        }
+        .article-meta {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="time-widget">
+    <div class="clock" id="clock"></div>
+    <div class="calendar-icon" onclick="toggleCalendar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+    </div>
+    <div class="calendar-popup" id="calendarPopup">
+        <div class="date-info" id="englishDate"></div>
+        <div class="date-info" id="arabicDate"></div>
+        <div class="date-info" id="banglaDate"></div>
+    </div>
+</div>
+
+<header class="article-header">
+    <div class="header-content">
+        <h1>Urban Design Trends 2024</h1>
+        <div class="article-meta">
+            <span>Posted on January 15, 2024</span>
+            <span>By Urban Stories Team</span>
+            <span>5 min read</span>
+        </div>
+    </div>
+</header>
+
+<article class="article-content">
+    <section class="article-section">
+        <h2>Introduction</h2>
+        <p>As we venture into 2024, urban design continues to evolve, shaped by technological advances, environmental concerns, and changing social dynamics. This year brings exciting new trends that are transforming our cities into more sustainable, livable, and innovative spaces.</p>
+    </section>
+
+    <section class="article-section">
+        <h2>Key Trends Shaping Our Cities</h2>
+        
+        <div class="trend-card">
+            <h3>1. Biophilic Design Integration</h3>
+            <p>Cities are increasingly incorporating natural elements into urban spaces, with vertical gardens, green roofs, and nature-inspired architecture becoming standard features rather than exceptions. This approach not only enhances aesthetic appeal but also improves air quality and mental well-being.</p>
+        </div>
+
+        <div class="trend-card">
+            <h3>2. Smart City Technologies</h3>
+            <p>IoT sensors, AI-powered traffic management, and smart lighting systems are being integrated seamlessly into urban infrastructure, making cities more efficient and responsive to citizens' needs.</p>
+        </div>
+
+        <div class="trend-card">
+            <h3>3. Climate-Resilient Design</h3>
+            <p>With climate change concerns mounting, cities are adopting design strategies that prioritize resilience, including permeable pavements, flood-resistant infrastructure, and heat-mitigating materials.</p>
+        </div>
+    </section>
+
+    <section class="article-section">
+        <h2>Visual Examples</h2>
+        <div class="image-gallery">
+            <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742" alt="Green rooftop garden showcasing biophilic design" class="gallery-image" width="400" height="200">
+            <img src="https://images.unsplash.com/photo-1494522855154-9297ac14b55f" alt="Smart city infrastructure and transportation solutions" class="gallery-image" width="400" height="200">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e" alt="Climate-resilient urban architecture" class="gallery-image" width="400" height="200">
+        </div>
+    </section>
+
+    <section class="article-section">
+        <h2>Looking Forward</h2>
+        <p>As we progress through 2024, these trends will continue to shape our urban landscapes, creating cities that are not only more sustainable and technologically advanced but also more human-centric and inclusive. The future of urban design lies in finding the perfect balance between innovation and livability.</p>
+    </section>
+</article>
+
+<div class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</div>
+
+<script>
+function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString('en-US', { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit',
+        hour12: true 
+    });
+    document.getElementById('clock').textContent = time;
+}
+
+function getBanglaMonth(month) {
+    const banglaMonths = ['বৈশাখ', 'জ্যৈষ্ঠ', 'আষাঢ়', 'শ্রাবণ', 'ভাদ্র', 'আশ্বিন', 
+                         'কার্তিক', 'অগ্রহায়ণ', 'পৌষ', 'মাঘ', 'ফাল্গুন', 'চৈত্র'];
+    return banglaMonths[month];
+}
+
+function convertToHijri(date) {
+    const islamic = new Intl.DateTimeFormat('en-u-ca-islamic', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    }).format(date);
+    return islamic;
+}
+
+function getBanglaDate(date) {
+    const banglaYear = date.getFullYear() - 593;
+    const banglaMonth = getBanglaMonth(date.getMonth());
+    const banglaDay = date.getDate();
+    return `${banglaDay} ${banglaMonth}, ${banglaYear}`;
+}
+
+function updateCalendar() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const englishDate = now.toLocaleDateString('en-US', options);
+    const hijriDate = convertToHijri(now);
+    const banglaDate = getBanglaDate(now);
+    
+    document.getElementById('englishDate').textContent = `English: ${englishDate}`;
+    document.getElementById('arabicDate').textContent = `Hijri: ${hijriDate}`;
+    document.getElementById('banglaDate').textContent = `বাংলা: ${banglaDate}`;
+}
+
+function toggleCalendar() {
+    const popup = document.getElementById('calendarPopup');
+    popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+    updateCalendar();
+}
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Show/hide back to top button
+window.addEventListener('scroll', () => {
+    const backToTop = document.getElementById('backToTop');
+    if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
+    }
+});
+
+// Update clock every second
+setInterval(updateClock, 1000);
+updateClock(); // Initial call
+
+// Initialize calendar
+document.addEventListener('DOMContentLoaded', updateCalendar);
+</script>
+</body></html>
