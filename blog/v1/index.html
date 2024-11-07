@@ -1,0 +1,426 @@
+<html><head><base href="https://example.com/dashboard/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Stories</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        overflow-x: hidden;
+    }
+
+    /* Welcome Animation */
+    .welcome-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        Width: 100vw;
+        height: 100vh;
+        background: #1a1a1a;
+        z-index: 1000;
+        animation: fadeOut 1s ease-in-out 4s forwards;
+    }
+
+    #particles-js {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .welcome-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 2em;
+        z-index: 1;
+        text-align: center;
+    }
+
+    @keyframes fadeOut {
+        to { opacity: 0; visibility: hidden; }
+    }
+
+    /* Clock and Calendar Styles */
+    .time-widget {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        z-index: 100;
+    }
+
+    .clock {
+        background: linear-gradient(145deg, #ffffff, #e6e6e6);
+        padding: 10px 20px;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .calendar-icon {
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(145deg, #ffffff, #e6e6e6);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .calendar-icon:hover {
+        transform: translateY(-2px);
+        box-shadow: 7px 7px 14px #d9d9d9, -7px -7px 14px #ffffff;
+    }
+
+    .calendar-popup {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        display: none;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .date-info {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Enhanced Navigation Buttons */
+    .main-nav a {
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 25px;
+        background: linear-gradient(145deg, #ffffff, #e6e6e6);
+        box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .main-nav a:hover {
+        background: linear-gradient(145deg, #e6e6e6, #ffffff);
+        transform: translateY(-2px);
+        box-shadow: 7px 7px 14px #d9d9d9, -7px -7px 14px #ffffff;
+    }
+
+    .main-nav a:active {
+        transform: translateY(0px);
+        box-shadow: inset 5px 5px 10px #d9d9d9, inset -5px -5px 10px #ffffff;
+    }
+
+    /* Portfolio Button */
+    .portfolio-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: linear-gradient(45deg, #2196F3, #00BCD4);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .portfolio-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+    }
+
+    .dashboard {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    @media (min-width: 768px) {
+        .dashboard {
+            grid-template-columns: 1fr 2fr;
+        }
+    }
+    @media (min-width: 1024px) {
+        .dashboard {
+            grid-template-columns: 1fr 2fr 1fr;
+        }
+    }
+    .header {
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 20px;
+    }
+    .welcome {
+        margin-bottom: 10px;
+    }
+    .main-nav {
+        display: flex;
+        gap: 20px;
+        font-size: 1em;
+    }
+    .blog-post {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    .blog-post:hover {
+        transform: translateY(-5px);
+    }
+    .blog-post h2 {
+        font-size: 1.8em;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .blog-post-meta {
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 15px;
+    }
+    .blog-post-excerpt {
+        line-height: 1.6;
+        color: #444;
+    }
+    .blog-tags {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    .tag {
+        background: #f0f2f5;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 0.8em;
+        color: #666;
+    }
+    .blog-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+<div class="welcome-overlay">
+    <div id="particles-js"></div>
+    <div class="welcome-text">Welcome to Urban Stories</div>
+</div>
+
+<div class="time-widget">
+    <div class="clock" id="clock"></div>
+    <div class="calendar-icon" onclick="toggleCalendar()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+    </div>
+    <div class="calendar-popup" id="calendarPopup">
+        <div class="date-info" id="englishDate"></div>
+        <div class="date-info" id="arabicDate"></div>
+        <div class="date-info" id="banglaDate"></div>
+    </div>
+</div>
+
+<div class="dashboard">
+    <header class="header">
+        <div class="welcome">
+            <h1>Urban Stories</h1>
+            <p>A blog about city life and design</p>
+            <a href="https://alahimajnurosama.github.io" class="portfolio-btn" target="_blank">Visit My Portfolio</a>
+        </div>
+        <nav class="main-nav">
+            <a href="https://alahimajnurosama.github.io/projects">Projects</a>
+            <a href="https://alahimajnurosama.bio.link">Contact</a>
+        </nav>
+    </header>
+    
+    <section class="main-content">
+        <a href="https://alahimajnurosama.github.io/blog/1" class="blog-post">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e" alt="Modern city skyline with innovative architectural designs, professional photograph" class="blog-image" width="800" height="200">
+            <h2>(Demo)Urban Project 2024</h2>
+            <div class="blog-post-meta">
+                <span>Posted on Jan 15, 2024</span> • <span>5 min read</span>
+            </div>
+            <div class="blog-post-excerpt">
+                <p>Exploring the latest trends in urban design and how they're shaping our cities. From sustainable architecture to smart city innovations, discover what's defining our urban landscapes in 2024...</p>
+            </div>
+            <div class="blog-tags">
+                <span class="tag">Design</span>
+                <span class="tag">Urban</span>
+                <span class="tag">Architecture</span>
+            </div>
+        </a>
+        
+        
+        <!--
+        <a href="https://example.com/blog/sustainable-living" class="blog-post">
+            <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742" alt="Green rooftop garden in urban setting, aerial view, documentary style" class="blog-image" width="800" height="200">
+            <h2>Sustainable Living in Modern Cities</h2>
+            <div class="blog-post-meta">
+                <span>Posted on Jan 12, 2024</span> • <span>4 min read</span>
+            </div>
+            <div class="blog-post-excerpt">
+                <p>A deep dive into sustainable practices for urban living. Learn about innovative solutions for eco-friendly city life, from vertical gardens to zero-waste initiatives that are transforming our urban spaces...</p>
+            </div>
+            <div class="blog-tags">
+                <span class="tag">Sustainability</span>
+                <span class="tag">Lifestyle</span>
+            </div>
+        </a>
+        
+        <a href="https://example.com/blog/urban-mobility-future" class="blog-post">
+            <img src="https://images.unsplash.com/photo-1494522855154-9297ac14b55f" alt="Modern urban transportation system with electric vehicles and cyclists, contemporary photography" class="blog-image" width="800" height="200">
+            <h2>The Future of Urban Mobility</h2>
+            <div class="blog-post-meta">
+                <span>Posted on Jan 10, 2024</span> • <span>6 min read</span>
+            </div>
+            <div class="blog-post-excerpt">
+                <p>Examining how new transportation technologies and infrastructure are revolutionizing the way we move through cities. From electric scooters to autonomous vehicles, discover the innovations shaping urban mobility...</p>
+            </div>
+            <div class="blog-tags">
+                <span class="tag">Transportation</span>
+                <span class="tag">Technology</span>
+                <span class="tag">Future</span>
+            </div>
+        </a>
+        
+        -->
+    </section>
+</div>
+<script>
+function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString('en-US', { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit',
+        hour12: true 
+    });
+    document.getElementById('clock').textContent = time;
+}
+
+function getBanglaMonth(month) {
+    const banglaMonths = ['বৈশাখ', 'জ্যৈষ্ঠ', 'আষাঢ়', 'শ্রাবণ', 'ভাদ্র', 'আশ্বিন', 
+                         'কার্তিক', 'অগ্রহায়ণ', 'পৌষ', 'মাঘ', 'ফাল্গুন', 'চৈত্র'];
+    return banglaMonths[month];
+}
+
+function convertToHijri(date) {
+    const islamic = new Intl.DateTimeFormat('en-u-ca-islamic', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    }).format(date);
+    return islamic;
+}
+
+function getBanglaDate(date) {
+    const banglaYear = date.getFullYear() - 593;
+    const banglaMonth = getBanglaMonth(date.getMonth());
+    const banglaDay = date.getDate();
+    return `${banglaDay} ${banglaMonth}, ${banglaYear}`;
+}
+
+function updateCalendar() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const englishDate = now.toLocaleDateString('en-US', options);
+    const hijriDate = convertToHijri(now);
+    const banglaDate = getBanglaDate(now);
+    
+    document.getElementById('englishDate').textContent = `English: ${englishDate}`;
+    document.getElementById('arabicDate').textContent = `Hijri: ${hijriDate}`;
+    document.getElementById('banglaDate').textContent = `বাংলা: ${banglaDate}`;
+}
+
+function toggleCalendar() {
+    const popup = document.getElementById('calendarPopup');
+    popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+    updateCalendar();
+}
+
+// Update clock every second
+setInterval(updateClock, 1000);
+updateClock(); // Initial call
+
+// Remove welcome overlay after animation
+setTimeout(() => {
+    document.querySelector('.welcome-overlay').style.display = 'none';
+}, 5000);
+
+// Particles.js initialization
+document.addEventListener('DOMContentLoaded', function() {
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 88},
+            color: { value: '#ffffff' },
+            shape: { type: 'circle' },
+            opacity: {
+                value: 0.5,
+                random: false
+            },
+            size: {
+                value: 4,
+                random: true
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#ffffff',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 6,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+                bounce: false
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'repulse'
+                },
+                resize: true
+            }
+        },
+        retina_detect: true
+    });
+});
+</script>
+</body></html>
