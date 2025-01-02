@@ -1,5 +1,7 @@
 <html><head><base href=".">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Urban Portal</title>
     <style>
         :root {
@@ -22,7 +24,7 @@
         body {
             background: var(--bg-dark);
             min-height: 100vh;
-            display: inline-flex;
+            display: flex;
             flex-direction: column;
             align-items: center;
             color: var(--text-dark);
@@ -360,7 +362,7 @@
 
         .light-mode .admin-details-modal-content {
             background: var(--card-bg-light);
-            color: var(--text-light);
+            color: var(--text-dark);
         }
 
         .admin-details-modal-content h2 {
@@ -369,7 +371,7 @@
         }
 
         .light-mode .admin-details-modal-content h2 {
-            color: var(--text-light);
+            color: var(--text-dark);
         }
 
         .admin-details-modal-content p {
@@ -379,7 +381,7 @@
         }
 
         .light-mode .admin-details-modal-content p {
-            color: var(--text-light);
+            color: var(--text-dark);
         }
 
         .admin-details-modal-content a {
@@ -425,40 +427,41 @@
 
     <div class="software-grid">
 
-    <!--
-        <div class="software-card" data-url="https://adobe.com/premium">
-            <svg class="software-logo" viewBox="0 0 24 24">
-                <path fill="#ff0000" d="M10,2H2V22H10V20H4V4H10V2M20,2H12V4H18V20H12V22H20V2M13,12L17,8V11H24V13H17V16L13,12Z"/>
-            </svg>
-            <h3 class="software-name">Adobe Creative Suite</h3>
-            <p class="software-description">Complete collection of premium Adobe creative tools for professionals.</p>
-        </div>
 
-        <div class="software-card" data-url="https://office.com/premium">
-            <svg class="software-logo" viewBox="0 0 24 24">
-                <path fill="#00a4ef" d="M21,2H3A2,2 0 0,0 1,4V20A2,2 0 0,0 3,22H21A2,2 0 0,0 23,20V4A2,2 0 0,0 21,2M21,20H3V4H21V20Z"/>
-            </svg>
-            <h3 class="software-name">Microsoft Office 365</h3>
-            <p class="software-description">Professional suite of productivity tools and applications.</p>
-        </div>
-
-        <div class="software-card" data-url="https://autodesk.com/premium">
-            <svg class="software-logo" viewBox="0 0 24 24">
-                <path fill="#7bb93d" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
-            </svg>
-            <h3 class="software-name">AutoCAD 2023</h3>
-            <p class="software-description">Professional CAD software for precise technical drawings.</p>
-        </div>
-
-        -->
-
-        <div class="software-card" data-url="https://alahimajnurosama.github.io/links/canva">
+ <div class="software-card" data-url="https://alahimajnurosama.github.io/links/canva">
             <svg class="software-logo" viewBox="0 0 24 24">
                 <path fill="#00C4CC" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/>
             </svg>
             <h3 class="software-name">Canva Pro</h3>
             <p class="software-description">Professional design platform for creating stunning visuals.</p>
         </div>
+      
+      
+        <div class="software-card" data-url="https:/alahimajnurosama.github.io/error">
+            <svg class="software-logo" viewBox="0 0 24 24">
+                <path fill="#ff0000" d="M10,2H2V22H10V20H4V4H10V2M20,2H12V4H18V20H12V22H20V2M13,12L17,8V11H24V13H17V16L13,12Z"/>
+            </svg>
+            <h3 class="software-name"> Coming soon </h3>
+            <p class="software-description">Complete collection of premium tools for professionals.</p>
+        </div>
+
+        <div class="software-card" data-url="https://office.com/premium">
+            <svg class="software-logo" viewBox="0 0 24 24">
+                <path fill="#00a4ef" d="M21,2H3A2,2 0 0,0 1,4V20A2,2 0 0,0 3,22H21A2,2 0 0,0 23,20V4A2,2 0 0,0 21,2M21,20H3V4H21V20Z"/>
+            </svg>
+            <h3 class="software-name"> Coming Soon </h3>
+            <p class="software-description">Professional suite of productivity tools and applications.</p>
+        </div>
+
+        <div class="software-card" data-url="https:/alahimajnurosama.github.io/error">
+            <svg class="software-logo" viewBox="0 0 24 24">
+                <path fill="#7bb93d" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+            </svg>
+            <h3 class="software-name"> Coming soon </h3>
+            <p class="software-description">Professional software for precise technical drawings.</p>
+        </div>
+
+       
     </div>
 
     <div class="modal" id="passwordModal">
