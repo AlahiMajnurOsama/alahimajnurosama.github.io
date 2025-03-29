@@ -1,0 +1,213 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alahi Majnur Osama</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="info-panel.css">
+  <link rel="stylesheet" href="ios-style.css">
+  <link rel="stylesheet" href="portfolio-styles.css">
+</head>
+<body oncontextmenu="return false">
+  <canvas id="auroraCanvas"></canvas>
+
+  <div class="glass-container">
+    <div class="profile-section">
+      <div class="profile-image"></div>
+      <div id="info-toggle">
+        <i class="fas fa-info"></i>
+      </div>
+    </div>
+        
+    <div id="info-panel">
+      <div class="info-panel-header">
+        <h3 class="info-panel-title">
+          <i class="fas fa-tools"></i> Tools & Information
+        </h3>
+        <button id="close-info" class="close-button"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="info-content"></div>
+      <div id="info-display"></div>
+    </div>
+
+    <div class="content-section">
+      <div class="intro-text">
+        <h2>Alahi Majnur Osama</h2> 
+        <div class="container">
+          <div class="text"></div>
+        </div>
+        <div class="animated-description">
+          <div class="animated-text"></div>
+        </div> <br>
+       
+        <div class="button-container">
+          <a href="#" class="glass-button" onclick="showPortfolio(); return false;">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            Portfolio
+          </a>
+          <a href="https://alahimajnurosama.github.io/Projects" class="glass-button" target="_blank">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            </svg>
+            Projects
+          </a>
+
+          <a href="https://alahimajnurosama.bio.link/" class="glass-button" target="_blank">
+            <svg class="social-icon" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            Contact
+          </a>
+
+          <a href="https://burnt-iguanadon-520.notion.site/osama" class="glass-button" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" class="social-icon" viewBox="0 0 24 24">
+              <path d="M 15.46875 1.5 L 2.9804688 2 A 0.50038132 0.50038132 0 0 0 2.9511719 2.0019531 A 1.0001 1.0001 0 0 0 2.9296875 2.0039062 A 1.0001 1.0001 0 0 0 2 3 L 2 16.894531 C 2 17.487 2.1760213 18.066018 2.5039062 18.558594 L 5.1679688 22.554688 A 1.0001 1.0001 0 0 0 6.0625 22.998047 L 22.0625 21.998047 A 1.0001 1.0001 0 0 0 23 21 L 23 5.5 A 1.0001 1.0001 0 0 0 22.736328 4.8242188 A 0.50037856 0.50037856 0 0 0 22.587891 4.6933594 A 0.50037856 0.50037856 0 0 0 22.585938 4.6914062 A 1.0001 1.0001 0 0 0 22.398438 4.5839844 L 18.296875 2.2441406 L 18.330078 2.265625 C 17.492273 1.6962298 16.485312 1.4260957 15.474609 1.5 L 15.46875 1.5 z"/>
+            </svg>
+            Notion
+          </a>
+        </div>
+
+        <div class="social-buttons">
+          <a href="https://facebook.com/alahimajnurosama.official" class="social-button" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/+8801642778252" class="social-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://t.me/MarkAtorny" class="social-button" target="_blank">
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+          <a href="https://github.com/alahimajnurosama" class="social-button" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/alahimajnurosama" class="social-button" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/alahimajnur" class="social-button" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="mode-container">
+    <div id="mode-toggle">
+      <div class="switch-overlay"></div>
+    </div>
+  </div>
+
+  <script type="x-shader/x-vertex" id="vertexShader">
+    void main() {
+      gl_Position = vec4(position, 1.0);
+    }
+  </script>
+
+  <script type="x-shader/x-fragment" id="fragmentShader">
+    uniform float time;
+    uniform vec2 resolution;
+    uniform float isNightMode;
+
+    #define PI 3.14159265359
+
+    vec2 rotate(vec2 v, float a) {
+      float s = sin(a);
+      float c = cos(a);
+      mat2 m = mat2(c, -s, s, c);
+      return m * v;
+    }
+
+    float fbm(vec2 st) {
+      float v = 0.0;
+      float a = 0.5;
+      vec2 shift = vec2(100.0);
+      mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
+      for (int i = 0; i < 5; ++i) {
+        v += a * sin(st.x * 3.0 + time * 0.1) * cos(st.y * 4.0);
+        st = rot * st * 2.0 + shift;
+        a *= 0.5;
+      }
+      return v;
+    }
+
+    vec3 dayScene(vec2 uv) {
+      vec2 q = vec2(0.);
+      q.x = fbm(uv + 0.1*time);
+      q.y = fbm(uv + vec2(1.0));
+      vec2 r = vec2(0.);
+      r.x = fbm(uv + 1.0*q + vec2(1.7,9.2)+ 0.15*time);
+      r.y = fbm(uv + 1.0*q + vec2(8.3,2.8)+ 0.126*time);
+      float f = fbm(uv+r);
+      
+      vec3 color = mix(
+        vec3(0.4, 0.7, 0.9),
+        vec3(0.5, 0.8, 1.0),
+        clamp((f*f)*4.0,0.0,1.0)
+      );
+      
+      float caustics = sin(uv.x * 20.0 + time * 2.0) * sin(uv.y * 20.0 + time * 1.5) * 0.5 + 0.5;
+      color += caustics * vec3(0.2, 0.2, 0.1);
+
+      float sandPattern = fbm(uv * 3.0 + time * 0.1);
+      vec3 sandColor = vec3(0.94, 0.90, 0.82);
+      float sandMix = smoothstep(-1.2, 0.5, uv.y);
+      color = mix(sandColor, color, sandMix);
+
+      return color * (f*f*f+0.6*f*f+0.8);
+    }
+
+    vec3 nightScene(vec2 uv) {
+      vec2 q = vec2(0.);
+      q.x = fbm(uv + 0.1*time);
+      q.y = fbm(uv + vec2(1.0));
+      vec2 r = vec2(0.);
+      r.x = fbm(uv + 1.0*q + vec2(1.7,9.2)+ 0.15*time);
+      r.y = fbm(uv + 1.0*q + vec2(8.3,2.8)+ 0.126*time);
+      float f = fbm(uv+r);
+      
+      vec3 color = mix(
+        vec3(0.1, 0.2, 0.3),
+        vec3(0.2, 0.3, 0.4),
+        clamp((f*f)*4.0,0.0,1.0)
+      );
+      
+      float moonGlow = pow(1.0 - length(uv - vec2(0.5, 0.3)), 2.0);
+      color += moonGlow * vec3(0.1, 0.2, 0.3);
+
+      float stars = step(0.98, fbm(uv * 50.0));
+      color += stars * vec3(0.8);
+
+      return color * (f*f*f+0.6*f*f+0.5);
+    }
+
+    void main() {
+      vec2 uv = gl_FragCoord.xy / resolution.xy;
+      uv = uv * 2.0 - 1.0;
+      uv.x *= resolution.x / resolution.y;
+      
+      uv = rotate(uv, sin(time * 0.1) * 0.1);
+      
+      vec3 dayColor = dayScene(uv * 2.0);
+      vec3 nightColor = nightScene(uv * 2.0);
+      
+      vec3 finalColor = mix(dayColor, nightColor, isNightMode);
+      
+      float vignette = 1.0 - length(uv) * 0.3;
+      finalColor *= vignette;
+      
+      gl_FragColor = vec4(finalColor, 1.0);
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+  <script src="search.js"></script>
+  <script src="info-display.js"></script>
+  <script src="info-panel.js"></script>
+  <script src="ui-enhancements.js"></script>
+</body>
+</html>
