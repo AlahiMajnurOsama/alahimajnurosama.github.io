@@ -23,7 +23,7 @@ function showPortfolio() {
         <div class="portfolio-card">
           <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
           <h3>Tech Skills</h3>
-          <p>JS, React, Node.js, Python</p>
+          <p>JS, Node, Python</p>
         </div>
         
         <a href="https://alahimajnurosama.github.io/blog" target="_blank" style="text-decoration: none; color: inherit;">
