@@ -1,0 +1,62 @@
+/* New file for compact info panel design */
+.info-panel-button {
+  padding: 15px 10px;
+  gap: 10px;
+  border-radius: 14px;
+}
+
+.info-button-icon {
+  width: 45px;
+  height: 45px;
+  font-size: 18px;
+}
+
+.info-button-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+#info-panel {
+  max-width: 500px;
+  width: 85%;
+}
+
+.info-panel-title {
+  font-size: 18px;
+}
+
+.info-content {
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+/* Fix back button conflict in device info and IP info */
+.view-header .back-button#device-info-back,
+.view-header .back-button#ip-info-back {
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  #info-panel {
+    width: 90%;
+  }
+  
+  .info-panel-button {
+    padding: 12px 8px;
+  }
+  
+  .info-button-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .info-button-label {
+    font-size: 12px;
+  }
+  
+  .info-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}

@@ -1,0 +1,10 @@
+/* Hide floating back buttons specifically in device info and IP info views */
+.view-content:has(.ios-section) + .floating-back-btn {
+  display: none !important;
+}
+
+/* Ensure the header back buttons are visible in these views */
+.view-header .back-button#device-info-back,
+.view-header .back-button#ip-info-back {
+  display: none !important;
+}

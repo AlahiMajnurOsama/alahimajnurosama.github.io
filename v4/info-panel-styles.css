@@ -1,0 +1,53 @@
+/* New file for additional info panel styles to avoid hitting max length */
+.info-scrollable {
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.info-scrollable::-webkit-scrollbar {
+  width: 5px;
+}
+
+.info-scrollable::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.info-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+/* Better spacing for info sections */
+.ios-section {
+  margin-bottom: 12px;
+}
+
+/* Make sections more compact */
+.ios-section-content {
+  padding: 10px 15px;
+}
+
+.ios-grid {
+  gap: 8px;
+}
+
+/* Adjust for dark mode */
+body.night-mode .info-scrollable::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.night-mode .info-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Remove top padding for first section to align with header */
+.view-content .ios-section:first-child {
+  margin-top: 5px;
+}
+
+/* Ensure floating back button is above other elements */
+.floating-back-btn {
+  z-index: 2000;
+}

@@ -1,0 +1,159 @@
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  background: url('https://avatars.githubusercontent.com/u/123330241?v=4') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    margin: 0;
+  }
+}
+
+.intro-text {
+  font-family: 'Raleway', sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 13px;
+  transition: color 0.5s ease;
+}
+
+.animated-text {
+  font-weight: 100;
+  font-size: 12px;
+  color: #FAFAFA;
+}
+
+@media screen and (min-width: 768px) {
+  .intro-text {
+    font-size: 15px;
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .button-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+.glass-button {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.glass-container h2 {
+  font-family: 'Cinzel', serif;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  transition: color 0.5s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .glass-container h2 {
+    font-size: 24px;
+    margin-top: 0;
+  }
+}
+
+body.night-mode .glass-container h2 {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  padding: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .social-buttons {
+    margin-top: 25px;
+    justify-content: flex-start;
+  }
+}
+
+.social-button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.night-mode .social-button {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  fill: rgba(0, 0, 0, 0.8);
+  transition: fill 0.5s ease;
+}
+
+body.night-mode .glass-container,
+body.night-mode .intro-text,
+body.night-mode .glass-button {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+body.night-mode .social-icon {
+  fill: rgba(255, 255, 255, 0.9);
+}
+
