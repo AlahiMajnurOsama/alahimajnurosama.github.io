@@ -1,0 +1,200 @@
+.dynamic-view-container {
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  color: inherit;
+  max-height: calc(80vh - 60px); /* Match portfolio view */
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.personal-info-content {
+  width: 100%;
+  max-width: 700px; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-info-title {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  color: inherit;
+}
+
+.info-grid {
+  display: grid;
+  gap: 12px; /* Slightly reduced gap */
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+  padding: 12px; /* Adjusted padding */
+  background: rgba(255, 255, 255, 0.06); /* Slightly adjusted alpha */
+  border-radius: 8px; /* Consistent with other cards */
+  border: 1px solid rgba(255, 255, 255, 0.12); /* Adjusted border */
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+body.night-mode .info-item {
+    background: rgba(30, 30, 55, 0.18); /* Adjusted night mode background */
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.info-label {
+  font-weight: 600; /* Slightly bolder */
+  margin-bottom: 6px; /* Adjusted margin */
+  font-size: 12px; /* Slightly smaller */
+  color: inherit;
+  opacity: 0.85;
+}
+
+.info-value {
+  font-size: 13px; /* Adjusted size */
+  color: inherit;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 50%;
+  right: 12px; /* Adjusted position */
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: inherit;
+  opacity: 0.7;
+  border-radius: 5px; /* Slightly more rounded */
+  padding: 6px 9px; /* Adjusted padding */
+  cursor: pointer;
+  font-size: 11px; /* Smaller icon button */
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 1;
+}
+
+body.night-mode .copy-btn {
+    background: rgba(45, 45, 75, 0.25); /* Adjusted night mode */
+    border-color: rgba(255, 255, 255, 0.1);
+}
+body.night-mode .copy-btn:hover {
+    background: rgba(55, 55, 85, 0.35);
+}
+
+.copy-btn i {
+  pointer-events: none;
+}
+
+/* Common back button style (reused from styles.css logic if possible, defined here for modularity) */
+.back-btn {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-bottom: 20px; /* Increased margin */
+  align-self: flex-start; /* Aligns to left if parent is flex */
+  display: inline-flex; /* To align icon and text */
+  align-items: center;
+  justify-content: flex-start; /* Default for back buttons in views */
+}
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+body.night-mode .back-btn {
+  background: rgba(40, 40, 70, 0.25);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+body.night-mode .back-btn:hover {
+  background: rgba(50, 50, 80, 0.35);
+}
+.back-btn i {
+  margin-right: 8px; /* Increased spacing */
+}
+
+.copy-notification {
+    position: fixed;
+    bottom: 25px; /* Adjusted position */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(40, 40, 40, 0.9); /* Darker, slightly transparent */
+    color: white;
+    padding: 12px 22px; /* Adjusted padding */
+    border-radius: 6px;
+    z-index: 1005;
+    font-size: 13px; /* Adjusted size */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    backdrop-filter: blur(3px);
+}
+body.night-mode .copy-notification {
+    background-color: rgba(230, 230, 230, 0.9); /* Lighter, slightly transparent */
+    color: #222;
+}
+
+@media screen and (min-width: 768px) {
+  .dynamic-view-container {
+    grid-column: 1 / -1; /* Span full width in grid */
+    padding: 20px;
+  }
+  .personal-info-title {
+    font-size: 22px;
+  }
+  .info-item {
+    flex-direction: row;
+    align-items: center;
+    padding: 15px; /* Slightly more padding */
+  }
+  .info-label {
+    margin-bottom: 0;
+    margin-right: 15px; /* More space */
+    flex-shrink: 0;
+    font-size: 13px; /* Consistent label size */
+  }
+  .info-value {
+     text-align: left;
+     flex-grow: 1;
+     font-size: 14px; /* Consistent value size */
+  }
+  .copy-btn {
+      position: static; /* Flow with content */
+      transform: none;
+      margin-left: 15px; /* Space from value */
+  }
+}
+
+@media screen and (max-width: 480px) { /* Specific styles for very small screens */
+    .info-label {
+        font-size: 11px;
+    }
+    .info-value {
+        font-size: 12px;
+    }
+    .copy-btn {
+        padding: 5px 7px;
+        font-size: 10px;
+        right: 8px;
+    }
+    .personal-info-title {
+        font-size: 18px;
+    }
+    .back-btn {
+        font-size: 12px;
+        padding: 7px 10px;
+    }
+}
