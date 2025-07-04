@@ -1,0 +1,29 @@
+[
+  {
+    "id": "exp-1",
+    "company": "Tech Solutions Inc.",
+    "role": "Junior Web Developer Intern",
+    "duration": "June 2023 - Aug 2023",
+    "location": "Remote",
+    "short_description": "Contributed to the front-end development of a client's e-commerce platform.",
+    "details": [
+      "Developed responsive UI components using React and styled-components.",
+      "Assisted in integrating REST APIs for product and user data.",
+      "Participated in agile ceremonies including daily stand-ups and sprint planning.",
+      "Collaborated with senior developers to debug and resolve front-end issues."
+    ]
+  },
+  {
+    "id": "exp-2",
+    "company": "Open Source Community",
+    "role": "Volunteer Contributor",
+    "duration": "Jan 2023 - Present",
+    "location": "Global",
+    "short_description": "Active contributor to the 'AuroraUI' component library project.",
+    "details": [
+      "Submitted pull requests for bug fixes and accessibility improvements.",
+      "Authored documentation for new components and usage examples.",
+      "Engaged with the community on Discord and GitHub discussions to help other users."
+    ]
+  }
+]

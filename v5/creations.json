@@ -1,0 +1,42 @@
+{
+  "poems": [
+    {
+      "id": "poem-1",
+      "title": "অজানা পথে",
+      "short_description": "জীবনের অজানা পথে চলার এক প্রতিচ্ছবি...",
+      "category": "জীবনমুখী",
+      "content": "অজানা পথের বাঁকে, স্বপ্নগুলো হাঁটে,\nআলোর খোঁজে মন, আঁধারেও ছোটে।\nহারানো দিনের সুর, বাতাসে ভাসে,\nএকাকী পথিক আমি, স্মৃতির পাশে।",
+      "writer_feelings": "এই কবিতাটি জীবনের অনিশ্চয়তা এবং তার মাঝেও আশার আলো খোঁজার একটি প্রচেষ্টা। যখন মনে হয় সবকিছু অজানা, তখনও পথচলার আনন্দটুকু খুঁজে নেওয়ার কথাই বলতে চেয়েছি।"
+    },
+    {
+      "id": "poem-2",
+      "title": "মেঘের চিঠি",
+      "short_description": "আকাশের বুকে মেঘেদের লেখা চিঠি...",
+      "category": "প্রকৃতি",
+      "content": "নীল খামে আজ, মেঘের চিঠি,\nবৃষ্টির ফোঁটায় লেখা, কী যে মিষ্টি!\nপাঠিয়েছে বাতাস, তোমার ঠিকানায়,\nভিজে যাওয়া মন, কী বলতে চায়?",
+      "writer_feelings": "বর্ষার দিনে আকাশ দেখে এই লাইনগুলো মাথায় আসে। মনে হচ্ছিল যেন মেঘেরা একে অপরের সাথে বৃষ্টির মাধ্যমে কথা বলছে, আর সেই বার্তাগুলোই যেন প্রকৃতির চিঠি।"
+    }
+  ],
+  "my_songs": [
+    {
+      "id": "mysong-1",
+      "title": "স্মৃতির স্টেশন",
+      "category": "আধুনিক",
+      "audio_url": "https://file-examples.com/storage/fe92e8a57762a8064711679/2017/11/file_example_MP3_700KB.mp3",
+      "lyrics": "(Verse 1)\nহারিয়ে যাওয়া বিকেলে, স্মৃতির স্টেশন,\nএকলা ট্রেন দাঁড়িয়ে, নেই কোনো প্রয়োজন।\n(Chorus)\nমন খারাপের কুয়াশায়, খুঁজি তোমায় অকারণ,\nএই শহরের বুকে তুমি, আমার নির্বাসন।",
+      "meaning": "This song is about nostalgia and the feeling of being stuck in a moment of the past, like a train waiting at a forgotten station.",
+      "admin_words": "This was one of the first songs I wrote. The melody came to me on a rainy evening, and the words just flowed."
+    }
+  ],
+  "covered_songs": [
+    {
+      "id": "coversong-1",
+      "title": "Wonderful Tonight",
+      "category": "Classic Rock",
+      "original_artist": "Eric Clapton",
+      "audio_url": "https://file-examples.com/storage/fe92e8a57762a8064711679/2017/11/file_example_MP3_1MG.mp3",
+      "lyrics": "(Verse 1)\nIt's late in the evening; she's wondering what clothes to wear.\nShe puts on her make-up and brushes her long blonde hair.\n(Chorus)\nAnd then she asks me, 'Do I look all right?'\nAnd I say, 'Yes, you look wonderful tonight.'",
+      "admin_words": "A timeless classic that I love to perform. Its simplicity is what makes it so beautiful and powerful. This is my humble tribute to a legend."
+    }
+  ]
+}

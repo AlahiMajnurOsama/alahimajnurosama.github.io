@@ -1,0 +1,22 @@
+[
+  {
+    "id": "codejam-winner-2023",
+    "title": "CodeJam 2023 - 1st Place",
+    "short_description": "Secured the top position in the annual university-level coding competition.",
+    "icon_url": "achievement-icon-1.png",
+    "certificate_image_url": "certificate-codejam.png",
+    "full_description": "Competed against over 100 participants in a 5-hour long competitive programming contest, solving complex algorithmic problems with speed and accuracy.",
+    "how_achieved": "The competition involved multiple rounds, starting with an online qualifier and culminating in an on-site final. Success was based on solving the maximum number of problems in the shortest time, with penalties for incorrect submissions.",
+    "words_about_it": "This was a challenging yet incredibly rewarding experience. It pushed my problem-solving skills to their limits and was a great testament to the power of practice and perseverance."
+  },
+  {
+    "id": "open-source-contributor",
+    "title": "Top Open Source Contributor",
+    "short_description": "Recognized for significant contributions to a major open-source project.",
+    "icon_url": "achievement-icon-2.png",
+    "certificate_image_url": "certificate-opensource.png",
+    "full_description": "Contributed over 50 pull requests to the 'AuroraUI' framework, focusing on improving accessibility features and component performance. Recognized as one of the top 10 contributors for the year.",
+    "how_achieved": "Contributions were made over a period of six months, involving bug fixes, feature implementations, and active participation in community discussions. The recognition was based on the quality and quantity of merged pull requests.",
+    "words_about_it": "Working with the open-source community was a fantastic learning opportunity. Collaborating with developers from around the world broadened my perspective and deepened my technical expertise."
+  }
+]
