@@ -1,0 +1,81 @@
+[
+  {
+    "id": "intro-to-webgl",
+    "title": "A Gentle Introduction to WebGL Shaders",
+    "short_description": "Exploring the magic behind the beautiful, dynamic backgrounds you see on the web.",
+    "cover_image": "blog-post-1.png",
+    "date": "2024-06-15",
+    "author": "Alahi Majnur Osama",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Have you ever visited a website and been mesmerized by a fluid, animated background that seems to react to your every move? Chances are, you were looking at the power of WebGL and shaders in action. This portfolio itself uses a custom shader for its aurora background! In this post, we'll demystify what shaders are and how they work."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "What is a Shader?"
+      },
+      {
+        "type": "paragraph",
+        "text": "In simple terms, a shader is a small program that runs on your computer's Graphics Processing Unit (GPU). Unlike regular programs that run on the CPU, shaders are highly optimized for parallel processing, making them incredibly fast at performing calculations for every single pixel on the screen. There are two main types of shaders: Vertex Shaders and Fragment (or Pixel) Shaders."
+      },
+      {
+        "type": "image",
+        "src": "blog-post-1.png",
+        "caption": "Visual representation of a shader's effect."
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "Fragment Shaders: Painting with Code"
+      },
+      {
+        "type": "paragraph",
+        "text": "This is where the magic happens. A fragment shader's job is to decide the final color of each pixel. It's like a tiny painter given a canvas (the screen) and a set of rules (your code) to paint with. By using mathematical functions, noise algorithms like Perlin or Simplex noise, and inputs like time and mouse position, you can create everything from simple gradients to complex, evolving patterns like the aurora on this site."
+      },
+      {
+        "type": "button",
+        "text": "See the code on GitHub",
+        "url": "https://github.com/alahimajnurosama"
+      }
+    ]
+  },
+  {
+    "id": "ai-in-development",
+    "title": "Leveraging AI for a Smarter Development Workflow",
+    "short_description": "How I use AI tools not just to write code, but to design, debug, and learn more effectively.",
+    "cover_image": "blog-post-2.png",
+    "date": "2024-05-28",
+    "author": "Alahi Majnur Osama",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Artificial Intelligence is no longer just a buzzword; it's a practical tool that can supercharge a developer's productivity. From code completion with GitHub Copilot to generating entire UI components from a text prompt, AI is changing how we build software. In this post, I'll share how I've integrated various AI tools into my daily workflow."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Beyond Code Generation"
+      },
+      {
+        "type": "paragraph",
+        "text": "While auto-generating code is useful, the real power of AI lies in its ability to act as a collaborative partner. I often use it for:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "**Brainstorming architecture:** Describing a problem and asking for potential data structures or design patterns.",
+          "**Debugging complex issues:** Pasting an error message and context to get suggestions on the root cause.",
+          "**Learning new technologies:** Asking for concise explanations or simple code examples of a new library or framework.",
+          "**Automating repetitive tasks:** Creating scripts for data processing or automating parts of my build pipeline."
+        ]
+      },
+      {
+        "type": "attachment",
+        "text": "Download my AI workflow checklist",
+        "url": "#"
+      }
+    ]
+  }
+]

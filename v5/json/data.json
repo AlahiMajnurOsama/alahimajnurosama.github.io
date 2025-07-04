@@ -1,0 +1,49 @@
+{
+  "personalInfo": {
+    "name": "Alahi Majnur Osama",
+    "dob": "2005-01-25",
+    "bloodGroup": "A+",
+    "nationality": "Bangladeshi",
+    "occupation": "Student",
+    "status": "Single",
+    "hobby": "Exploring Technologies",
+    "aimInLife": "Become A Cyber Specialist"
+  },
+  
+  "education": [
+      {
+      "id": "University",
+      "institution": "BGC Trust University Bangladesh",
+      "session": "2023-2027",
+      "details": "Ongoing: BSC in CSE"
+    },
+    {
+      "id": "College",
+      "institution": "Uttar Kattali Alhaz Mostofa Hakim Degree College",
+      "session": "2021-2022",
+      "details": "Completed: HSC (4.25)"
+    },
+    {
+      "id": "High School",
+      "institution": "Govt. muslim High School",
+      "session": "2016-2020",
+      "details": "Completed: JSC(4.57), SSC(4.50)"
+    },
+    {
+      "id": "Primary School",
+      "institution": "Firingee Bazar Govt Primary School",
+      "session": "2015",
+      "details": "Completed: PSC (5.00)"
+    }
+  ],
+  
+  "skills": [
+    "AI Integration & Automation (Fluent in using *AI to enhance development, design & workflows)",
+    "Creative Coding & Intuitive UI/UX (Vibe Coding – blending logic, design, and flow seamlessly)",
+    "Project Lifecycle, Problem-Solving, Teamwork, Time Management",
+    "Microsoft Office, Data Entry & Analysis, Project Coordination",
+    "HTML, CSS, WordPress, Python, C++, GitHub",
+    "Linux, Docker, Canva",
+    "Basic Networking"
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "calculator",
+    "title": "Simple Calculator UI",
+    "short_description": "A glassmorphism-based calculator app with clean design and smooth user interaction.",
+    "image_url": "Calculator.png",
+    "video_url": "Calculator.mp4",
+    "full_description": "A visually appealing calculator built with HTML, CSS, and JavaScript featuring glassmorphism design. It offers basic arithmetic operations with an intuitive UI suitable for beginners and non-tech users.",
+    "admin_words": "Focused on design and user experience, this project reflects my experiments with CSS effects and aesthetic UI components.",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/Calculator",
+    "preview_link": "https://alahimajnurosama.github.io/Calculator"
+  },
+  {
+    "id": "customsms",
+    "title": "Custom SMS API Solution",
+    "short_description": "An API-integrated SMS platform used with services like Badhan and Robi Express.",
+    "image_url": "CustomSMS.png",
+    "video_url": "CustomSMS.mp4",
+    "full_description": "Developed a platform to send SMS via APIs from multiple service providers. Though discontinued for ethical reasons, it was a deep dive into API integration and security practices.",
+    "admin_words": "Built as a real-world tool, it helped me understand authentication layers and rate limits with public APIs.",
+    "technologies": ["HTML", "JavaScript", "REST API"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/CustomSMS",
+    "preview_link": "https://alahimajnurosama.github.io/CustomSMS"
+  },
+  {
+    "id": "retro",
+    "title": "IPTV Streamer App",
+    "short_description": "Stream IPTV content with M3U playlist support and multiple video engines.",
+    "image_url": "Retro.png",
+    "video_url": "Retro.mp4",
+    "full_description": "Supports JSON and M3U playlists with 4 different media playback methods. Designed to explore IPTV systems. Discontinued due to copyright concerns.",
+    "admin_words": "Built to understand media streaming logic and playlist parsing with multiple players.",
+    "technologies": ["HTML", "JavaScript", "M3U", "VLC-Embed"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/Retro",
+    "preview_link": "https://alahimajnurosama.github.io/Retro"
+  },
+  {
+    "id": "urbanai",
+    "title": "Urban AI – ChatGPT Integration",
+    "short_description": "A lightweight ChatGPT interface with custom styling for easy conversations.",
+    "image_url": "UrbanAi.png",
+    "video_url": "UrbanAi.mp4",
+    "full_description": "A minimal HTML/JS-based ChatGPT integration offering conversational AI interaction in a user-friendly format. Great for experimenting with OpenAI APIs.",
+    "admin_words": "My first step into merging frontend skills with powerful language models like ChatGPT.",
+    "technologies": ["HTML", "JavaScript", "OpenAI API"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/UrbanAi",
+    "preview_link": "https://alahimajnurosama.github.io/UrbanAi"
+  },
+  {
+    "id": "urbanmail",
+    "title": "Temporary Email System",
+    "short_description": "Create disposable email inboxes with APIs like 1secmail and mail.tm.",
+    "image_url": "UrbanMail.png",
+    "video_url": "UrbanMail.mp4",
+    "full_description": "A two-version build: v1 with basic inbox using 1secmail, and v2 upgraded to support mail.tm with login functionality and persistent inbox. Great for spam-free testing.",
+    "admin_words": "Solved a real problem during test signups. Also explored API upgrades and version control.",
+    "technologies": ["HTML", "JavaScript", "1secmail API", "mail.tm API"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/UrbanMail",
+    "preview_link": "https://alahimajnurosama.github.io/UrbanMail"
+  },
+  {
+    "id": "html-encrypt",
+    "title": "HTML Encryption Tool",
+    "short_description": "Offline tool to encrypt and obfuscate HTML code.",
+    "image_url": "html-encrypt.png",
+    "video_url": "html-encrypt.mp4",
+    "full_description": "Encrypts HTML content for basic source code protection, aimed at creators who want to obscure their content. Works entirely offline.",
+    "admin_words": "Helps non-tech people protect their work. Shows how simple encryption works with JS.",
+    "technologies": ["HTML", "JavaScript"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/html-encrypt",
+    "preview_link": "https://alahimajnurosama.github.io/html-encrypt"
+  },
+  {
+    "id": "json2m3u",
+    "title": "JSON to M3U Converter",
+    "short_description": "A conversion tool to generate M3U playlists from JSON IPTV data.",
+    "image_url": "json2m3u.png",
+    "video_url": "json2m3u.mp4",
+    "full_description": "Takes structured JSON channel data and turns it into valid M3U format playlists. Useful for IPTV devs or testers working on stream-based platforms.",
+    "admin_words": "Part of my IPTV project journey. Taught me data structuring and format parsing.",
+    "technologies": ["HTML", "JavaScript", "JSON"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/json2m3u",
+    "preview_link": "https://alahimajnurosama.github.io/json2m3u"
+  },
+  {
+    "id": "passgen",
+    "title": "Password Generator (C++ UI)",
+    "short_description": "Secure password generator with GUI features and custom word options.",
+    "image_url": "passgen.png",
+    "video_url": "passgen.mp4",
+    "full_description": "Initially a CLI project, now upgraded to GUI using C++. Users can generate secure passwords with different rules and even include their custom words.",
+    "admin_words": "One of my proudest CLI-to-GUI conversions—blending logic with interface design.",
+    "technologies": ["C++", "File Handling", "GUI Toolkit (e.g., Qt or Windows Forms)"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/passgen",
+    "preview_link": "https://alahimajnurosama.github.io/passgen"
+  },
+  {
+    "id": "simtools",
+    "title": "SIM Toolkit Utilities (SimTools)",
+    "short_description": "A toolkit for SIM-based services like balance check, recharge automation, etc.",
+    "image_url": "simtools.png",
+    "video_url": "simtools.mp4",
+    "full_description": "Built for academic and telecom exploration, SimTools contains mini utilities to automate or simplify SIM card-related tasks (offline app).",
+    "admin_words": "Built during my network basics exploration. Learned mobile integration concepts.",
+    "technologies": ["HTML", "JavaScript", "Offline Scripts"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/simtools",
+    "preview_link": "https://alahimajnurosama.github.io/simtools"
+  },
+  {
+    "id": "weather",
+    "title": "Interactive Weather App",
+    "short_description": "A weather app using location or city to fetch real-time data via API.",
+    "image_url": "weather.png",
+    "video_url": "weather.mp4",
+    "full_description": "Simple web app that uses the OpenWeather API to fetch weather updates based on user input or geolocation. Built with intuitive UI in mind.",
+    "admin_words": "A hands-on way to learn API integration, input handling, and responsive layout.",
+    "technologies": ["HTML", "CSS", "JavaScript", "OpenWeather API"],
+    "source_link": "https://github.io/AlahiMajnurOsama/Projects/weather",
+    "preview_link": "https://alahimajnurosama.github.io/weather"
+  }
+]
