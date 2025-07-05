@@ -1,0 +1,55 @@
+/* skills-styles.css */
+
+.skills-content-wrapper {
+  width: 100%;
+  max-width: 700px; /* Consistent with other views */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* font-family will inherit from body (Helvetica, Arial, sans-serif) */
+}
+
+.skills-title {
+  /* font-family will inherit, ensure it matches other titles if specific styling was intended */
+  font-size: 20px; 
+  margin-top: 0; 
+  margin-bottom: 20px;
+  text-align: center;
+  color: inherit;
+}
+
+.skills-list {
+  display: grid;
+  gap: 12px; /* Consistent with info-grid */
+}
+
+/* Skill items will use .info-item and .info-value from personal-info-styles.css */
+/* Add specific .skill-item styles here if needed */
+.skill-item.info-item {
+  /* Example: if you need specific padding for skills */
+  /* padding: 15px; */
+  /* Ensure text aligns to the start if it's a single block */
+  justify-content: flex-start; 
+}
+
+.skill-item .info-value {
+  /* If skill text needs specific styling */
+  line-height: 1.6;
+}
+
+
+@media screen and (min-width: 768px) {
+  .skills-title {
+    font-size: 22px; /* Consistent title size */
+  }
+  .skill-item.info-item {
+    /* Desktop specific adjustments for skill items if any */
+  }
+}
+
+.no-skills-data {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  opacity: 0.8;
+}
